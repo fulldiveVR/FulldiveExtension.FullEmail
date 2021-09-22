@@ -310,7 +310,7 @@ public class SocketFetcher {
 		logger.finer("using SocketChannels");
 		socket = SocketChannel.open().socket();
 	    } else {
-				SocketFactory f = (SocketFactory) props.get("fairemail.factory");
+				SocketFactory f = (SocketFactory) props.get("Full Email.factory");
 				eu.faircode.email.Log.i("Using socket factory=" + f);
 				socket = (f == null ? new Socket() : f.createSocket());
 	    }
@@ -331,7 +331,7 @@ public class SocketFetcher {
 	    socket.bind(new InetSocketAddress(localaddr, localport));
 	try {
 	    InetAddress iaddr = InetAddress.getByName(host);
-	    String server = props.getProperty("fairemail.server");
+	    String server = props.getProperty("Full Email.server");
 	    if (!TextUtils.isEmpty(server))
 				iaddr = InetAddress.getByAddress(server, iaddr.getAddress());
 	    eu.faircode.email.Log.i("Socket connect " + iaddr +

@@ -47,22 +47,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 /*
-    This file is part of FairEmail.
-
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
+   
 */
 
 // https://developer.android.com/topic/libraries/architecture/room.html
@@ -120,7 +105,7 @@ public abstract class DB extends RoomDatabase {
     static final int DEFAULT_QUERY_THREADS = 4; // AndroidX default thread count: 4
     static final int DEFAULT_CACHE_SIZE = 5; // percentage
 
-    private static final String DB_NAME = "fairemail";
+    private static final String DB_NAME = "Full Email";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
 
     private static final String[] DB_TABLES = new String[]{

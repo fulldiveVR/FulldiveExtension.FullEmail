@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
-
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
+   
 */
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -2066,11 +2051,11 @@ class Core {
             }
         } catch (Throwable ex) {
             /*
-                06-21 10:02:38.035  9927 10024 E fairemail: java.lang.NullPointerException: Folder name is null
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:372)
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:411)
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPStore.newIMAPFolder(SourceFile:1809)
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.DefaultFolder.listSubscribed(SourceFile:89)
+                06-21 10:02:38.035  9927 10024 E Full Email: java.lang.NullPointerException: Folder name is null
+                06-21 10:02:38.035  9927 10024 E Full Email: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:372)
+                06-21 10:02:38.035  9927 10024 E Full Email: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:411)
+                06-21 10:02:38.035  9927 10024 E Full Email: 	at com.sun.mail.imap.IMAPStore.newIMAPFolder(SourceFile:1809)
+                06-21 10:02:38.035  9927 10024 E Full Email: 	at com.sun.mail.imap.DefaultFolder.listSubscribed(SourceFile:89)
              */
             Log.e(account.name, ex);
         }

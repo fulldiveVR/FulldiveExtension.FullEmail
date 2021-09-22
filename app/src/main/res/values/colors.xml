@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- https://material.io/resources/color/ -->
 
-    <color name="colorDebug">#bc3f3f</color>
+    <color name="colorDebug">#ffffff</color>
 
     <color name="colorReadLight">#b3000000</color>
     <color name="colorUnreadLight">#ff000000</color>
@@ -59,15 +59,15 @@
     <color name="darkActionBackground">#444</color>
 
     <!-- Light blue 600 / Amber 600 -->
-    <color name="lightBluePrimary">#039be5</color>
-    <color name="lightBluePrimaryDark">#006db3</color>
+    <color name="lightBluePrimary">#ff9900</color>
+    <color name="lightBluePrimaryDark">#c68400</color>
     <color name="lightAmberAccent">#ffb300</color>
     <color name="lightAmberAccentDark">#c68400</color>
 
     <!-- Amber 600 / Light blue 600 -->
     <color name="lightAmberPrimary">#ffb300</color>
     <color name="lightAmberPrimaryDark">#c68400</color>
-    <color name="lightBlueAccent">#039be5</color>
+    <color name="lightBlueAccent">#ff9900</color>
 
     <!-- Yellow 600 / Purple 600 -->
     <color name="lightYellowPrimary">#fdd835</color>
@@ -95,13 +95,13 @@
     <color name="darkAmberAccent">#ffb300</color>
 
     <!-- Amber 900 / Light blue 300-->
-    <color name="darkAmberPrimary">#ff6f00</color>
-    <color name="darkAmberPrimaryDark">#c43e00</color>
+    <color name="darkAmberPrimary">#ffb300</color>
+    <color name="darkAmberPrimaryDark">#c68400</color>
     <color name="darkBlueAccent">#4fc3f7</color>
 
     <!-- Yellow 900 / Purple 300 -->
-    <color name="darkYellowPrimary">#f57f17</color>
-    <color name="darkYellowPrimaryDark">#bc5100</color>
+    <color name="darkYellowPrimary">#ffb300</color>
+    <color name="darkYellowPrimaryDark">#c68400</color>
     <color name="darkPurpleAccent">#ba68c8</color>
 
     <!-- Purple 900 / Yellow 600 -->
@@ -155,11 +155,15 @@
     <color name="transparent">#00000000</color>
 
     <color name="solarizedYellow">#b58900</color>
-    <color name="solarizedOrange">#cb4b16</color>
+    <color name="solarizedOrange">#FF9900</color>
     <color name="solarizedMagenta">#d33682</color>
     <color name="solarizedRed">#dc322f</color>
     <color name="solarizedViolet">#6c71c4</color>
     <color name="solarizedBlue">#268bd2</color>
     <color name="solarizedCyan">#2aa198</color>
     <color name="solarizedGreen">#859900</color>
+
+    <color name="textColorPrimary">#0D1826</color>
+    <color name="textColorSecondary">#BABDC1</color>
+    <color name="textColorAccent">#FF9900</color>
 </resources>

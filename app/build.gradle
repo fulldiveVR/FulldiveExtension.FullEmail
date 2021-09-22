@@ -3,27 +3,22 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 1722 }
-def getReleaseName = { -> return "\"Yaverlandia\"" }
-// https://en.wikipedia.org/wiki/List_of_dinosaur_genera
-
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
 
 android {
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId "eu.faircode.email"
+        applicationId "com.fulldive.extension.fullemail"
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode getVersionCode()
-        versionName "1." + getVersionCode()
-        archivesBaseName = "FairEmail-v$versionName"
+        targetSdkVersion 31
+        versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
 
-        buildConfigField "String", "RELEASE_NAME", getReleaseName()
+        archivesBaseName = "Full Email-v$versionName"
+        // buildConfigField "String", "RELEASE_NAME", getReleaseName()
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -92,10 +87,10 @@ android {
     // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
     signingConfigs {
         release {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
+            storeFile = file("../keys/keys_stage.jks")
+            storePassword = "FbFq7H2k8AdYHLnJsp5P"
+            keyAlias = "fulldive_stage"
+            keyPassword = "UcuEEErkS6T2qCXse2gQ"
             v1SigningEnabled true
             v2SigningEnabled true
         }
@@ -119,12 +114,21 @@ android {
             minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFileName = "FullEmail-v${android.defaultConfig.versionName}-${variant.buildType.name}.apk"
+                }
+            }
         }
         debug {
-            applicationIdSuffix '.debug'
             debuggable = true
             minifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFileName = "FullEmail-v${android.defaultConfig.versionName}-${variant.buildType.name}.apk"
+                }
+            }
         }
     }
 
@@ -137,9 +141,9 @@ android {
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "boolean", "AMAZON_RELEASE", "false"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
-            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
-            buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
+            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FullEmail/releases/\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FullEmail/releases/latest\""
+            buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FullEmail/releases\""
             buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
         }
         fdroid {
@@ -148,9 +152,9 @@ android {
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "boolean", "AMAZON_RELEASE", "false"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
-            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
-            buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
+            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FullEmail/releases/\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FullEmail/releases/latest\""
+            buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FullEmail/releases\""
             buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
         }
         play {
@@ -196,7 +200,7 @@ android {
         else
             variant.buildConfigField "String", "MXTOOLBOX_URI", "\"\""
 
-        // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
+        // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FullEmail-v1.nnn-github-release-mapping.txt
         if (variant.getBuildType().isMinifyEnabled())
             variant.assembleProvider.get().doLast {
                 for (file in variant.getMappingFileProvider().get().files)
@@ -223,7 +227,7 @@ android {
         builderName = "M66B"
         sourceControl {
             provider = "github-enterprise"
-            repository = "https://github.com/M66B/FairEmail"
+            repository = "https://github.com/M66B/FullEmail"
         }
     }
 }
@@ -511,4 +515,6 @@ dependencies {
 
     // http://bigbadaboom.github.io/androidsvg/
     implementation "com.caverock:androidsvg:$svg_version"
+
+    implementation "com.squareup.okhttp3:okhttp:4.9.1"
 }

@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
-
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
+   
 */
 
 import static android.system.OsConstants.ENOSPC;
@@ -154,8 +139,8 @@ public class MessageHelper {
     private static final List<String> FLAG_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
             MessageHelper.FLAG_FORWARDED,
             MessageHelper.FLAG_NOT_JUNK,
-            MessageHelper.FLAG_CLASSIFIED, // FairEmail
-            MessageHelper.FLAG_FILTERED, // FairEmail
+            MessageHelper.FLAG_CLASSIFIED, // Full Email
+            MessageHelper.FLAG_FILTERED, // Full Email
             "$MDNSent", // https://tools.ietf.org/html/rfc3503
             "$SubmitPending",
             "$Submitted",
@@ -704,7 +689,7 @@ public class MessageHelper {
 
             for (Element child : document.body().children())
                 if (!TextUtils.isEmpty(child.text()) &&
-                        TextUtils.isEmpty(child.attr("fairemail"))) {
+                        TextUtils.isEmpty(child.attr("Full Email"))) {
                     String old = child.attr("style");
                     String style = HtmlHelper.mergeStyles(
                             "font-family:" + compose_font, old);
@@ -712,13 +697,13 @@ public class MessageHelper {
                         child.attr("style", style);
                 }
 
-            document.select("div[fairemail=signature]").removeAttr("fairemail");
-            document.select("div[fairemail=reference]").removeAttr("fairemail");
+            document.select("div[Full Email=signature]").removeAttr("Full Email");
+            document.select("div[Full Email=reference]").removeAttr("Full Email");
 
-            Elements reply = document.select("div[fairemail=reply]");
+            Elements reply = document.select("div[Full Email=reply]");
             if (message.plain_only != null && message.plain_only)
                 reply.select("strong").tagName("span");
-            reply.removeAttr("fairemail");
+            reply.removeAttr("Full Email");
 
             DB db = DB.getInstance(context);
             try {

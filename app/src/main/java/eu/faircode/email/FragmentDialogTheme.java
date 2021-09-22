@@ -60,35 +60,15 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         tvMore = dview.findViewById(R.id.tvMore);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String theme = prefs.getString("theme", "blue_orange_system");
+        String theme = prefs.getString("theme", "orange_blue_black");
 
-        rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                eval();
-            }
-        });
+        rgTheme.setOnCheckedChangeListener((group, checkedId) -> eval());
 
-        swReverse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                eval();
-            }
-        });
+        swReverse.setOnCheckedChangeListener((buttonView, isChecked) -> eval());
 
-        rgThemeOptions.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                eval();
-            }
-        });
+        rgThemeOptions.setOnCheckedChangeListener((group, checkedId) -> eval());
 
-        swBlack.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                eval();
-            }
-        });
+        swBlack.setOnCheckedChangeListener((buttonView, isChecked) -> eval());
 
         boolean reversed =
                 (theme.startsWith("orange_blue") ||
@@ -172,12 +152,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         }
 
         tvMore.setPaintFlags(tvMore.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 164);
-            }
-        });
+        tvMore.setOnClickListener(v -> Helper.viewFAQ(v.getContext(), 164));
 
         return new AlertDialog.Builder(getContext())
                 .setView(dview)
@@ -253,7 +228,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
     static int getTheme(ActivityBase activity) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-        String theme = prefs.getString("theme", "blue_orange_system");
+        String theme = prefs.getString("theme", "orange_blue_black");
 
         boolean night = Helper.isNight(activity);
         EntityLog.log(activity, "Activity theme=" + theme + " night=" + night);
@@ -374,7 +349,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
             default:
                 Log.e("Unknown theme=" + theme);
-                return R.style.AppThemeBlueOrangeLight;
+                return R.style.AppThemeOrangeBlueBlack;
         }
     }
 
@@ -383,7 +358,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean cards = prefs.getBoolean("cards", true);
         boolean beige = prefs.getBoolean("beige", true);
         boolean tabular_card_bg = prefs.getBoolean("tabular_card_bg", false);
-        String theme = prefs.getString("theme", "blue_orange_system");
+        String theme = prefs.getString("theme", "orange_blue_black");
         boolean dark = Helper.isDarkTheme(context);
         boolean solarized = (theme != null && theme.startsWith("solarized"));
 

@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
-
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
+   
 */
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
@@ -208,14 +193,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setColor(colorWarning).setSeparated());
 
-        menus.add(new NavMenuItem(R.drawable.twotone_archive_24, R.string.title_setup_export, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onMenuExport();
-            }
-        }));
-
         menus.add(new NavMenuItem(R.drawable.twotone_unarchive_24, R.string.title_setup_import, new Runnable() {
             @Override
             public void run() {
@@ -267,14 +244,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
                 onDebugInfo();
-            }
-        }).setExternal(true));
-
-        menus.add(new NavMenuItem(R.drawable.twotone_feedback_24, R.string.menu_issue, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onMenuIssue();
             }
         }).setExternal(true));
 
@@ -1583,7 +1552,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
+        intent.putExtra(Intent.EXTRA_TITLE, "Full Email_" +
                 new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
         Helper.openAdvanced(intent);
         return intent;

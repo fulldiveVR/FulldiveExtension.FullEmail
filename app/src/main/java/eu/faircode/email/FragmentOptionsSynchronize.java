@@ -1,23 +1,8 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
-*/
+ */
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -62,7 +47,6 @@ import java.util.Objects;
 public class FragmentOptionsSynchronize extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
     private SwitchCompat swOptimize;
-    private ImageButton ibOptimizeInfo;
     private Spinner spPollInterval;
     private RecyclerView rvExempted;
     private SwitchCompat swSchedule;
@@ -70,7 +54,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
     private CheckBox[] cbDay;
-    private ImageButton ibSchedules;
 
     private SwitchCompat swQuickSyncImap;
     private SwitchCompat swQuickSyncPop;
@@ -117,7 +100,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         swEnabled = view.findViewById(R.id.swEnabled);
         swOptimize = view.findViewById(R.id.swOptimize);
-        ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
         spPollInterval = view.findViewById(R.id.spPollInterval);
 
         swSchedule = view.findViewById(R.id.swSchedule);
@@ -134,7 +116,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 view.findViewById(R.id.cbDay5),
                 view.findViewById(R.id.cbDay6)
         };
-        ibSchedules = view.findViewById(R.id.ibSchedules);
 
         swQuickSyncImap = view.findViewById(R.id.swQuickSyncImap);
         swQuickSyncPop = view.findViewById(R.id.swQuickSyncPop);
@@ -176,13 +157,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_optimize", checked).apply();
                 ServiceSynchronize.reload(getContext(), null, false, "optimize");
-            }
-        });
-
-        ibOptimizeInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 39);
             }
         });
 
@@ -257,13 +231,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 }
             });
         }
-
-        ibSchedules.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 78);
-            }
-        });
 
         swQuickSyncImap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

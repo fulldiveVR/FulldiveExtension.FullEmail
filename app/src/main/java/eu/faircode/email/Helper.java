@@ -1,23 +1,8 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
-*/
+ */
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
@@ -159,9 +144,9 @@ public class Helper {
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
-    static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
+    static final String PRIVACY_URI = "https://fulldive.com/privacy-policy";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
-    static final String SUPPORT_URI = "https://contact.faircode.eu/";
+    static final String SUPPORT_URI = "hhttps://fulldive.com/";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String BIMI_PRIVACY_URI = "https://datatracker.ietf.org/doc/html/draft-brotman-ietf-bimi-guidance-03#section-7.4";
     static final String FAVICON_PRIVACY_URI = "https://en.wikipedia.org/wiki/Favicon";
@@ -192,7 +177,7 @@ public class Helper {
             @Override
             public Thread newThread(@NonNull Runnable runnable) {
                 Thread thread = new Thread(runnable);
-                thread.setName("FairEmail_bg_" + name + "_" + threadId.getAndIncrement());
+                thread.setName("Full Email_bg_" + name + "_" + threadId.getAndIncrement());
                 thread.setPriority(THREAD_PRIORITY_BACKGROUND);
                 return thread;
             }
@@ -785,23 +770,7 @@ public class Helper {
     }
 
     static void viewFAQ(Context context, int question, boolean english) {
-        // Redirection is done to prevent text editors from opening the link
-        // https://email.faircode.eu/faq -> https://github.com/M66B/FairEmail/blob/master/FAQ.md
-        // https://email.faircode.eu/docs -> https://github.com/M66B/FairEmail/tree/master/docs
-        // https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1
-        // https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md#user-content-faq1
-
-        String base;
-        String locale = (english ? null : getFAQLocale());
-        if (locale == null)
-            base = "https://email.faircode.eu/faq";
-        else
-            base = "https://email.faircode.eu/docs/FAQ-" + locale + ".md";
-
-        if (question == 0)
-            view(context, Uri.parse(base + "#top"), "text/html", false, false);
-        else
-            view(context, Uri.parse(base + "#user-content-faq" + question), "text/html", false, false);
+        view(context, Uri.parse("https://fulldive.com/"), "text/html", false, false);
     }
 
     static String getOpenKeychainPackage(Context context) {
@@ -811,11 +780,7 @@ public class Helper {
 
     static Uri getPrivacyUri(Context context) {
         // https://translate.google.com/translate?sl=auto&tl=<language>&u=<url>
-        return Uri.parse(PRIVACY_URI)
-                .buildUpon()
-                .appendQueryParameter("language", Locale.getDefault().getLanguage())
-                .appendQueryParameter("tag", Locale.getDefault().toLanguageTag())
-                .build();
+        return Uri.parse(PRIVACY_URI);
     }
 
     static Uri getSupportUri(Context context) {
@@ -825,7 +790,7 @@ public class Helper {
 
         return Uri.parse(SUPPORT_URI)
                 .buildUpon()
-                .appendQueryParameter("product", "fairemailsupport")
+                .appendQueryParameter("product", "Full Emailsupport")
                 .appendQueryParameter("version", BuildConfig.VERSION_NAME)
                 .appendQueryParameter("locale", slocale.toString())
                 .appendQueryParameter("language", language == null ? "" : language)

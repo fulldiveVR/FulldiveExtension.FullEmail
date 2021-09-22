@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL;
@@ -363,7 +348,7 @@ public class HtmlHelper {
 
     private static Document sanitize(Context context, Document parsed, boolean view, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = prefs.getString("theme", "blue_orange_system");
+        String theme = prefs.getString("theme", "orange_blue_black");
         boolean bw = "black_and_white".equals(theme);
         boolean background_color = (!view || (!bw && prefs.getBoolean("background_color", false)));
         boolean text_color = (!view || (!bw && prefs.getBoolean("text_color", true)));
@@ -552,7 +537,7 @@ public class HtmlHelper {
             // Element style
             style = mergeStyles(style, element.attr("style"));
 
-            if ("fairemail_debug_info".equals(clazz))
+            if ("Full Email_debug_info".equals(clazz))
                 style = mergeStyles(style, "font-size: smaller");
 
             if (text_align) {

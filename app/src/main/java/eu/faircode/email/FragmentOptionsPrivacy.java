@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
 import android.app.Dialog;
@@ -245,127 +230,68 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        swClientId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("client_id", checked).apply();
-                ServiceSynchronize.reload(compoundButton.getContext(), null, false, "id");
-            }
+        swClientId.setOnCheckedChangeListener((compoundButton, checked) -> {
+            prefs.edit().putBoolean("client_id", checked).apply();
+            ServiceSynchronize.reload(compoundButton.getContext(), null, false, "id");
         });
 
-        swDisplayHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("display_hidden", checked).apply();
-            }
-        });
+        swDisplayHidden.setOnCheckedChangeListener((compoundButton, checked) -> prefs.edit().putBoolean("display_hidden", checked).apply());
 
         swIncognitoKeyboard.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
-        swIncognitoKeyboard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("incognito_keyboard", checked).apply();
-            }
+        swIncognitoKeyboard.setOnCheckedChangeListener((compoundButton, checked) -> prefs.edit().putBoolean("incognito_keyboard", checked).apply());
+
+        ibIncognitoKeyboard.setOnClickListener(v -> Helper.view(v.getContext(), Uri.parse("https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING"), true));
+
+        swSecure.setOnCheckedChangeListener((compoundButton, checked) -> {
+            prefs.edit().putBoolean("secure", checked).commit(); // apply won't work here
         });
 
-        ibIncognitoKeyboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse("https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING"), true);
-            }
-        });
+        swGenericUserAgent.setOnCheckedChangeListener((compoundButton, checked) -> prefs.edit().putBoolean("generic_ua", checked).apply());
 
-        swSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("secure", checked).commit(); // apply won't work here
-            }
-        });
+        swSafeBrowsing.setOnCheckedChangeListener((compoundButton, checked) -> prefs.edit().putBoolean("safe_browsing", checked).apply());
 
-        swGenericUserAgent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("generic_ua", checked).apply();
-            }
-        });
-
-        swSafeBrowsing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("safe_browsing", checked).apply();
-            }
-        });
-
-        ibSafeBrowsing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true);
-            }
-        });
+        ibSafeBrowsing.setOnClickListener(v -> Helper.view(v.getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true));
 
         grpSafeBrowsing.setEnabled(WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE));
 
-        ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
+        ibDisconnectBlacklist.setOnClickListener(v -> Helper.viewFAQ(v.getContext(), 159));
+
+        btnDisconnectBlacklist.setOnClickListener(view1 -> new SimpleTask<Void>() {
             @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 159);
+            protected void onPreExecute(Bundle args) {
+                btnDisconnectBlacklist.setEnabled(false);
             }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                btnDisconnectBlacklist.setEnabled(true);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                DisconnectBlacklist.download(context);
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                setOptions();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
+            }
+        }.execute(FragmentOptionsPrivacy.this, new Bundle(), "disconnect"));
+
+        swDisconnectAutoUpdate.setOnCheckedChangeListener((compoundButton, checked) -> {
+            prefs.edit().putBoolean("disconnect_auto_update", checked).apply();
+            WorkerAutoUpdate.init(compoundButton.getContext());
         });
 
-        btnDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new SimpleTask<Void>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        btnDisconnectBlacklist.setEnabled(false);
-                    }
+        swDisconnectLinks.setOnCheckedChangeListener((compoundButton, checked) -> prefs.edit().putBoolean("disconnect_links", checked).apply());
 
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        btnDisconnectBlacklist.setEnabled(true);
-                    }
-
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        DisconnectBlacklist.download(context);
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        setOptions();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
-                    }
-                }.execute(FragmentOptionsPrivacy.this, new Bundle(), "disconnect");
-            }
-        });
-
-        swDisconnectAutoUpdate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("disconnect_auto_update", checked).apply();
-                WorkerAutoUpdate.init(compoundButton.getContext());
-            }
-        });
-
-        swDisconnectLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("disconnect_links", checked).apply();
-            }
-        });
-
-        swDisconnectImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("disconnect_images", checked).apply();
-            }
-        });
+        swDisconnectImages.setOnCheckedChangeListener((compoundButton, checked) -> prefs.edit().putBoolean("disconnect_images", checked).apply());
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
@@ -464,55 +390,41 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                     .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String pin = etPin.getText().toString();
-                            if (TextUtils.isEmpty(pin))
-                                prefs.edit().remove("pin").apply();
-                            else {
-                                boolean pro = ActivityBilling.isPro(getContext());
-                                if (pro) {
-                                    Helper.setAuthenticated(getContext());
-                                    prefs.edit()
-                                            .remove("biometrics")
-                                            .putString("pin", pin)
-                                            .apply();
-                                } else
-                                    startActivity(new Intent(getContext(), ActivityBilling.class));
-                            }
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        String pin = etPin.getText().toString();
+                        if (TextUtils.isEmpty(pin))
+                            prefs.edit().remove("pin").apply();
+                        else {
+                            boolean pro = ActivityBilling.isPro(getContext());
+                            if (pro) {
+                                Helper.setAuthenticated(getContext());
+                                prefs.edit()
+                                        .remove("biometrics")
+                                        .putString("pin", pin)
+                                        .apply();
+                            } else
+                                startActivity(new Intent(getContext(), ActivityBilling.class));
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null);
 
             String pin = prefs.getString("pin", null);
             if (!TextUtils.isEmpty(pin))
-                builder.setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        prefs.edit().remove("pin").apply();
-                    }
-                });
+                builder.setNeutralButton(R.string.title_reset, (dialog, which) -> prefs.edit().remove("pin").apply());
 
             final Dialog dialog = builder.create();
 
-            etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE).performClick();
-                        return true;
-                    } else
-                        return false;
-                }
+            etPin.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+                    return true;
+                } else
+                    return false;
             });
 
-            etPin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (hasFocus)
-                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                }
+            etPin.setOnFocusChangeListener((v, hasFocus) -> {
+                if (hasFocus)
+                    dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
             });
 
             ApplicationEx.getMainHandler().post(new Runnable() {

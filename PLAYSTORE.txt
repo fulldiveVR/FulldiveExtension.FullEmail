@@ -1,10 +1,10 @@
-FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
+FullEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
 
-FairEmail might be for you if you value your privacy.
+FullEmail might be for you if you value your privacy.
 
-<i>FairEmail is an email client only, so you need to bring your own email address.</i>
+<i>FullEmail is an email client only, so you need to bring your own email address.</i>
 
-<i>FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.</i>
+<i>FullEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.</i>
 
 <i>Almost all features are free to use, but to maintain and support the app in the long term, not every feature can be for free. See below for a list of pro features.</i>
 
@@ -60,7 +60,7 @@ This app starts a foreground service with a low priority status bar notification
 * No analytics and no tracking (error reporting via Bugsnag is opt-in)
 * No Google backup
 * No Firebase Cloud Messaging
-* FairEmail is an original work, not a fork or a clone
+* FullEmail is an original work, not a fork or a clone
 
 <b>Efficient</b>
 
@@ -95,4 +95,4 @@ All pro features are convenience or advanced features.
 If you have a question or problem, please check here first:
 https://github.com/M66B/open-source-email/blob/master/FAQ.md
 
-If you cannot find what you are looking for, please contact me at marcel+fairemail@faircode.eu and I will try to help you.
+If you cannot find what you are looking for, please contact me at marcel+FullEmail@faircode.eu and I will try to help you.

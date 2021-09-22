@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
 import android.app.ActivityOptions;
@@ -32,6 +17,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.appextension.PopupManager;
+
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +32,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (!Helper.isSupportedDevice() && Helper.isPlayStoreInstall()) {
-            setTheme(R.style.AppThemeBlueOrangeLight);
+            setTheme(R.style.AppThemeOrangeBlueBlack);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_unsupported);
             return;
@@ -289,9 +276,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             editor.apply();
 
             if (Helper.isNight(this))
-                setTheme(R.style.AppThemeBlueOrangeDark);
+                setTheme(R.style.AppThemeOrangeBlueBlack);
             else
-                setTheme(R.style.AppThemeBlueOrangeLight);
+                setTheme(R.style.AppThemeOrangeBlueBlack);
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -302,6 +289,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             fragmentTransaction.replace(R.id.content_frame, new FragmentEula()).addToBackStack("eula");
             fragmentTransaction.commit();
         }
+        new PopupManager().onAppStarted(this);
     }
 
     @Override

@@ -1,4 +1,4 @@
-<img src="https://github.com/M66B/FairEmail/raw/master/images/banner7_long.png" />
+<img src="https://github.com/M66B/FullEmail/raw/master/images/banner7_long.png" />
 
 <p align="center">
 	<a href="#downloads">Downloads</a> &bull;
@@ -17,13 +17,13 @@
 
 *Fully featured, open source, privacy oriented email app for Android*
 
-FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
+FullEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
 
-FairEmail might be for you if you value your privacy.
+FullEmail might be for you if you value your privacy.
 
-*FairEmail is an email client only, so you need to bring your own email address.*
+*FullEmail is an email client only, so you need to bring your own email address.*
 
-*FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.*
+*FullEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.*
 
 ## Main features
 
@@ -55,7 +55,7 @@ This app starts a foreground service with a low priority status bar notification
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
 * Attempt to recognize and disable tracking images
-* Warning if messages could not be [authenticated](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq92)
+* Warning if messages could not be [authenticated](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq92)
 
 ## Simple
 
@@ -72,10 +72,10 @@ This app starts a foreground service with a low priority status bar notification
 * Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
-* No analytics and no tracking ([error reporting](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) via Bugsnag is opt-in)
+* No analytics and no tracking ([error reporting](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq104) via Bugsnag is opt-in)
 * No [Google backup](https://developer.android.com/guide/topics/data/backup)
 * No [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)
-* FairEmail is an original work, not a fork or a clone
+* FullEmail is an original work, not a fork or a clone
 
 ## Efficient
 
@@ -88,20 +88,20 @@ This app starts a foreground service with a low priority status bar notification
 All pro features are convenience or advanced features.
 
 * Account/identity/folder colors
-* Colored stars ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
-* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo) ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq145))
+* Colored stars ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq107))
+* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo) ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq145))
 * Configurable notification actions
-* Snooze messages ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq67))
+* Snooze messages ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq67))
 * Send messages after selected time
-* Synchronization scheduling ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq78))
+* Synchronization scheduling ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq78))
 * Reply templates
 * Accept/decline calendar invitations
 * Add message to calendar
-* Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
-* Automatic message classification ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163))
-* Search indexing, search on server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
-* S/MIME sign/encrypt ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq12))
-* Biometric/PIN authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
+* Filter rules ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq71))
+* Automatic message classification ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq163))
+* Search indexing, search on server ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq13))
+* S/MIME sign/encrypt ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq12))
+* Biometric/PIN authentication ([instructions](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq113))
 * Message list widget
 * Export settings
 
@@ -113,17 +113,17 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 
 Supported download locations:
 
-* [GitHub](https://github.com/M66B/FairEmail/releases)
+* [GitHub](https://github.com/M66B/FullEmail/releases)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)
 * [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
 * ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~
 * ~~[Amazon](https://www.amazon.com/gp/product/B0983R6MH2)~~ (the APK file repackaged by Amazon is incomplete! An issue report was never answered by Amazon.)
 
-Please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq173) about the differences between the different releases.
+Please see [this FAQ](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq173) about the differences between the different releases.
 
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
-you cannot use third party email apps anymore, please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq22) for more information.
+you cannot use third party email apps anymore, please see [this FAQ](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq22) for more information.
 
 The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
 
@@ -140,7 +140,7 @@ F-Droid builds new versions irregularly and you'll need the F-Droid client to ge
 To get updates in a timely fashion you are advised to use the GitHub release.
 
 **Important**: There is support on the F-Droid build only if the version number of the F-Droid build is the same as the version number of the latest GitHub release.
-Please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147) for more information on third-party builds.
+Please [see here](https://github.com/M66B/FullEmail/blob/master/FAQ.md#user-content-faq147) for more information on third-party builds.
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
@@ -163,7 +163,7 @@ for more information.
 
 ## Compatibility
 
-FairEmail requires at least Android 5 Lollipop.
+FullEmail requires at least Android 5 Lollipop.
 
 Individual message notifications are available on Android 7 Nougat and later only
 because earlier Android versions do not support notification grouping.
@@ -192,12 +192,12 @@ are preferred in the form of [pull requests](https://help.github.com/articles/cr
 
 *Translations*
 
-* You can translate the in-app texts of FairEmail [on Crowdin](https://crowdin.com/project/open-source-email)
+* You can translate the in-app texts of FullEmail [on Crowdin](https://crowdin.com/project/open-source-email)
 * If your language is not listed, please send a message through [this contact form](https://contact.faircode.eu/?product=other)
 
 *Source code*
 
-Building FairEmail from source code is straightforward with [Android Studio](http://developer.android.com/sdk/).
+Building FullEmail from source code is straightforward with [Android Studio](http://developer.android.com/sdk/).
 It is expected that you can solve build problems yourself, so there is no support on building.
 
 Source code contributions are preferred in the form of [pull requests](https://help.github.com/articles/creating-a-pull-request/).
@@ -227,6 +227,6 @@ Copyright &copy; 2018-2021 Marcel Bokhorst. All rights reserved.
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
-> FairEmail is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+> FullEmail is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-> FairEmail is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+> FullEmail is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

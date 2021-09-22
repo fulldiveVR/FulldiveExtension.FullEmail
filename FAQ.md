@@ -1,5 +1,5 @@
 <a name="top"></a>
-# FairEmail support
+# FullEmail support
 
 [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" width="18" height="18" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md) &nbsp;
 [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" width="18" height="18" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md) &nbsp;
@@ -85,7 +85,7 @@ Related questions:
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
+* A bug in Nova Launcher on Android 5.x causes FullEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
@@ -106,7 +106,7 @@ Related questions:
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FullEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~
@@ -166,7 +166,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(23) Why do I get alert ...?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
+* [(26) Can I help to translate FullEmail in my own language?](#user-content-faq26)
 * [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
 * [(28) How can I manage status bar notifications?](#user-content-faq28)
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
@@ -178,8 +178,8 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) How are passwords stored?](#user-content-faq37)
-* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
+* [(39) How can I reduce the battery usage of FullEmail?](#user-content-faq39)
+* [(40) How can I reduce the data usage of FullEmail?](#user-content-faq40)
 * [(41) How can I fix the error 'Handshake failed'?](#user-content-faq41)
 * [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
 * [(43) Can you show the original ...?](#user-content-faq43)
@@ -205,7 +205,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
 * [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
+* [(66) Is FullEmail available in the Google Play Family Library?](#user-content-faq66)
 * [(67) How can I snooze conversations?](#user-content-faq67)
 * [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
@@ -261,7 +261,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
 * [(121) How are messages grouped into a conversation?](#user-content-faq121)
 * [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
+* [(123) What will happen when FullEmail cannot connect to an email server?](#user-content-faq123)
 * [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
 * [(125) What are the current experimental features?](#user-content-faq125)
 * [(126) Can message previews be sent to my wearable?](#user-content-faq126)
@@ -336,7 +336,7 @@ The following Android permissions are needed:
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
-On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+On earlier Android versions you will be asked to grant the optional permissions on installing FullEmail.
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
@@ -358,10 +358,10 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 * *com.vivo.notification.permission.BADGE_ICON*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to
-and will use this list for contact suggestions when no contacts permissions is granted to FairEmail.
-This means you can use FairEmail without the Android contacts provider (address book).
-Note that you can still pick contacts without granting contacts permissions to FairEmail,
+FullEmail will keep a list of addresses you receive messages from and send messages to
+and will use this list for contact suggestions when no contacts permissions is granted to FullEmail.
+This means you can use FullEmail without the Android contacts provider (address book).
+Note that you can still pick contacts without granting contacts permissions to FullEmail,
 only suggesting contacts won't work without contacts permissions.
 
 <br />
@@ -378,10 +378,10 @@ Doze mode will stop all apps when the screen is off for some time, unless the ap
 Most, if not all, other email apps don't show a notification
 with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
+Android shows icons of high priority status bar notifications first and will hide the icon of FullEmail's notification if there is no space to show icons anymore.
 In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+The status bar notification can be disabled via the notification settings of FullEmail:
 
 * Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
@@ -535,7 +535,7 @@ Some people ask:
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-If you use the Play store or GitHub version of FairEmail,
+If you use the Play store or GitHub version of FullEmail,
 you can use the quick setup wizard to easily setup a Gmail account and identity.
 The Gmail quick setup wizard is not available for third party builds, like the F-Droid build
 because Google approved the use of OAuth for official builds only.
@@ -606,11 +606,11 @@ Sent messages are normally moved from the outbox to the sent folder as soon as y
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
 Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider.
-In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent.
+In these cases FullEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent.
 Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~
-~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~
+~~In these cases you can enable the advanced identity setting *Store sent messages* to let FullEmail add sent messages to the sent folder right after sending a message.~~
 ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~
 ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -629,7 +629,7 @@ So, it makes little sense to add this protocol anymore.
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case.
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
-Note that the desciption of FairEmail starts with the remark
+Note that the desciption of FullEmail starts with the remark
 that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
 
 Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040)
@@ -659,7 +659,7 @@ Note that you can copy an identity by long pressing it.
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
 if your provider allows this.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FullEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
 See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
@@ -670,7 +670,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 ~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).
 This IMAP extension is required to implement two way synchronization, which is not an optional feature.
-So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+So, unless your provider can enable this extension, you cannot use FullEmail for this provider.~~
 
 <br />
 
@@ -722,7 +722,7 @@ You can always open the send dialog using the three-dots overflow menu in case y
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
 The first time you send a signed/encrypted message you might be asked for a sign key.
-FairEmail will automatically store the selected sign key in the used identity for the next time.
+FullEmail will automatically store the selected sign key in the used identity for the next time.
 If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*.
 The selected sign key is visible in the list of identities.
 If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
@@ -739,15 +739,15 @@ If you want to undo decryption, you can use the *resync* menu item in the three-
 *PGP*
 
 You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first.
-FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+FullEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
+**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FullEmail) is not authorized yet and is getting an existing public key.
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key.
 This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
+**Important**: to let apps like FullEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
 it might be necessary to disable battery optimizations for the OpenKeychain app.
 
 **Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
@@ -756,7 +756,7 @@ it might be necessary to disable battery optimizations for the OpenKeychain app.
 in the additional permissions of the Android app settings of the OpenKeychain app.
 Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients,
+FullEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients,
 but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header.
 Note that the most secure way to start an encrypted email exchange is by sending signed messages first.
 Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
@@ -764,7 +764,7 @@ Received Autocrypt headers will be sent to the OpenKeychain app for storage on v
 Although this shouldn't be necessary for most email clients, you can attach your public key to a message
 and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
 
-All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
+All key handling is delegated to the OpenKey chain app for security reasons. This also means that FullEmail does not store PGP keys.
 
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
@@ -781,7 +781,7 @@ Common errors:
 
 * *No key*: there is no PGP key available for one of the listed email addresses
 * *No key found!*: the PGP key stored in the identity probably doesn't exist anymore. Resetting the key (see above) will probably fix this problem.
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Missing key for encryption*: there is probably a key selected in FullEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
 * *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
 * *OpenPgp error 0: null* / *OpenPgp error 0: General error*: please check the key in the OpenKeychain app and make sure there are no conflicting identities for the key and make sure the email address exactly matches the key, including lower/upper case. Also, make sure the key can be used to sign/encrypt and isn't for encrypting/signing only.
 
@@ -812,15 +812,15 @@ If you use both PGP and S/MIME encryption for the same email address, it might b
 so you can change the encryption method by selecting one of the two identities.
 You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+To allow different private keys for the same email address, FullEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
+Public keys are stored by FullEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
 
-FairEmail verifies both the signature and the complete certificate chain.
+FullEmail verifies both the signature and the complete certificate chain.
 
 Common errors:
 
-* *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
+* *No certificate found matching targetContraints*: this likely means you are using an old version of FullEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
 * *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
 * *No private key*: no certificate was selected or no certificate was available in the Android keystore
@@ -863,8 +863,8 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people are using it.
 
-However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p.
-Also, FairEmail understands incoming p≡p messages since version 1.1519,
+However, FullEmail can send and receive PGP encrypted messages, which are compatible with p≡p.
+Also, FullEmail understands incoming p≡p messages since version 1.1519,
 so the encrypted subject will be shown and the embedded message text will be shown more nicely.
 
 <br />
@@ -970,7 +970,7 @@ or if there other operations, like synchronizing messages, are being executed.
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons)
 and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+If FullEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
 
 In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
 
@@ -1000,7 +1000,7 @@ See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue
 
 Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
-In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device.
+In case of successive connection errors, FullEmail will hold off increasingly longer to not drain the battery of your device.
 This is described in [this FAQ](#user-content-faq123).
 
 <br />
@@ -1025,11 +1025,11 @@ See also [this FAQ](#user-content-faq15).
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
-First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+First of all, **FullEmail is basically free to use** and only some advanced features need to be purchased.
 
-Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+Zuerst, **FullEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
 
-Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
+Tout d'abord, **FullEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
 
 Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
@@ -1042,11 +1042,11 @@ The right question is "*why are there so many taxes and fees?*":
 
 So, what is left for the developer is just a fraction of what you pay.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
+Also note that most free apps will appear not to be sustainable in the end, whereas FullEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 There are no privacy violating ads in the app either.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable.
+I have been working on FullEmail almost every day for more than two years, so I think the price is more than reasonable.
 For this reason there won't be discounts either.
 
 <br />
@@ -1085,9 +1085,9 @@ Setting a light color before Android 8 is not supported and on Android 8 and lat
 <a name="faq22"></a>
 **(22) What does account/folder error ... mean?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FullEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
-FairEmail will automatically try to connect again after a delay.
+FullEmail will automatically try to connect again after a delay.
 This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
 Please see [this FAQ](#user-content-faq123) for more information about this.
 
@@ -1129,7 +1129,7 @@ can likely be solved by changing the advanced identity setting *Use local IP add
 
 The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default).
 Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app.
-You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+You can try to increase the connection timeout in the connection settings of FullEmail, for when the email server is really slow.
 
 The error *... Connection refused ...* means that the email server
 or something between the email server and the app, like a firewall, actively refused the connection.
@@ -1142,7 +1142,7 @@ means that the address of the email server could not be resolved into an IP addr
 This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...*
-means that the email server or something between FairEmail and the email server actively terminated an existing connection.
+means that the email server or something between FullEmail and the email server actively terminated an existing connection.
 This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
 The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server
@@ -1164,7 +1164,7 @@ The error *... Unexpected end of zlib input stream ...* means that not all data 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
-FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+FullEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
 
@@ -1314,7 +1314,7 @@ When a menu item to select/open/save a file is disabled (dimmed) or when you get
 the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present.
 This might be because your custom ROM does not include it or because it was actively removed (debloated).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders.
+FullEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
 The storage access framework is provided by the package *com.android.documentsui*,
@@ -1331,13 +1331,13 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Can I help to translate FullEmail in my own language?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email).
+Yes, you can translate the texts of FullEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email).
 Registration is free.
 
 If you would like your name or alias to be included in the list of contributors in *About* the app,
-please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+please [contact me](https://contact.faircode.eu/?product=FullEmailsupport).
 
 <br />
 
@@ -1346,15 +1346,15 @@ please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![External image](https://github.com/M66B/FullEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FullEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FullEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1363,12 +1363,12 @@ Note that downloading external images from a remote server can be used to record
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
 
-In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FullEmail.
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels,
 for example to set a specific notification sound or to show notifications on the lock screen.
 
-FairEmail has the following notification channels:
+FullEmail has the following notification channels:
 
 * Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
 * Send: used for the notification of the send service
@@ -1499,7 +1499,7 @@ that might not only cause privacy sensitive information to leak, but can also be
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
-FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
+FullEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
 
 Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
 
@@ -1538,23 +1538,23 @@ consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-m
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) How can I reduce the battery usage of FullEmail?**
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
 **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!**
-The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
-However, this doesn't mean that FairEmail is constantly using battery power.
+The app usage (while in use) will be very high because FullEmail is using a foreground service which is considered as constant app usage by Android.
+However, this doesn't mean that FullEmail is constantly using battery power.
 The real battery usage can be seen by navigating to this screen:
 
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
 As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*.
 If this isn't the case, please turn on *Auto optimize* in the receive settings.
-If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
+If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=FullEmailsupport).
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
-If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly.
+If you are comparing the battery usage of FullEmail with another email client, please make sure the other email client is setup similarly.
 For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
@@ -1588,13 +1588,13 @@ You could disable this option for example for the sent folder and the archive.
 Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night.
 In the settings you can select a schedule for message synchronization (this is a pro feature).
 
-FairEmail will by default synchronize the folder list on each connection.
+FullEmail will by default synchronize the folder list on each connection.
 Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
 
-FairEmail will by default check if old messages were deleted from the server on each connection.
-If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
+FullEmail will by default check if old messages were deleted from the server on each connection.
+If you don't mind that old messages that were delete from the server are still visible in FullEmail, you can save some network and battery usage by disabling this in the receive settings.
 
-Some providers don't follow the IMAP standard and [don't keep connections open](https://datatracker.ietf.org/doc/html/rfc3501#section-5.4) long enough, forcing FairEmail to reconnect often, causing extra battery usage.
+Some providers don't follow the IMAP standard and [don't keep connections open](https://datatracker.ietf.org/doc/html/rfc3501#section-5.4) long enough, forcing FullEmail to reconnect often, causing extra battery usage.
 You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc).
 You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes.
 Note that battery optimizations need to be disabled in setup step 3 to reliably keep connections alive.
@@ -1625,13 +1625,13 @@ after three successive [too many simultaneous connections](#user-content-faq23) 
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the data usage of FairEmail?**
+**(40) How can I reduce the data usage of FullEmail?**
 
 You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
 It is inevitable that data will be used to synchronize messages.
 
-If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed.
+If the connection to the email server is lost, FullEmail will always synchronize the messages again to make sure no messages were missed.
 If the connection is unstable, this can result in extra data usage.
 In this case, it is a good idea to decrease the number of days to synchronize messages to a minimum (see the previous question)
 or to switch to periodically synchronizing of messages (receive settings).
@@ -1641,7 +1641,7 @@ To reduce data usage, you could change these advanced receive settings:
 * Check if old messages were removed from the server: disable
 * Synchronize (shared) folder list: disable
 
-By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection.
+By default FullEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection.
 You can change this in the connection settings.
 
 <br />
@@ -1662,7 +1662,7 @@ If this isn't an option, you could enable *Allow insecure connections* both in t
 See also [this FAQ](#user-content-faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation
-or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
+or by a too short DH key on the email server and can unfortunately not be fixed by FullEmail.
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4,
 which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
@@ -1716,7 +1716,7 @@ See below about how to contact me.
 **(43) Can you show the original ...?**
 
 Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc.
-FairEmail does and will not alter this in any way,
+FullEmail does and will not alter this in any way,
 except for requesting [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm),
 which will *attempt* to make small text more readable.
 
@@ -1754,8 +1754,8 @@ Note that you shouldn't set the number of days to synchronize messages to more t
 
 You'll get the error message *No primary account or no drafts folder* when trying to compose a message
 while there is no account set to be the primary account or when there is no drafts folder selected for the primary account.
-This can happen for example when you start FairEmail to compose a message from another app.
-FairEmail needs to know where to store the draft,
+This can happen for example when you start FullEmail to compose a message from another app.
+FullEmail needs to know where to store the draft,
 so you'll need to select one account to be the primary account and/or you'll need to select a drafts folder for the primary account.
 
 This can also happen when you try to reply to a message or to forward a message from an account with no drafts folder
@@ -1769,7 +1769,7 @@ Please see [this FAQ](#user-content-faq141) for some more information.
 **~~(48) How do I solve the error 'No primary account or no archive folder'?~~**
 
 ~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
-FairEmail needs to know where to search,
+FullEmail needs to know where to search,
 so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.~~
 
 <br />
@@ -1779,12 +1779,12 @@ so you'll need to select one account to be the primary account and/or you'll nee
 
 You likely selected or sent an attachment or image with an outdated file manager
 or an outdated app which assumes all apps still have storage permissions.
-For security and privacy reasons modern apps like FairEmail have no full access to all files anymore.
+For security and privacy reasons modern apps like FullEmail have no full access to all files anymore.
 This can result into the error message *An outdated app sent a file path instead of a file stream*
-if a file name instead of a file stream is being shared with FairEmail because FairEmail cannot randomly open files.
+if a file name instead of a file stream is being shared with FullEmail because FullEmail cannot randomly open files.
 
 You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions.
-Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings.
+Alternatively, you can grant FullEmail read access to the storage space on your device in the Android app settings.
 Note that this workaround [won't work on Android Q](https://developer.android.com/preview/privacy/scoped-storage) anymore.
 
 See also [question 25](#user-content-faq25)
@@ -1818,7 +1818,7 @@ The navigation (hamburger) menu item *Order folders* in the settings can be used
 There is no reliable way to know if an account connection was terminated gracefully or forcefully.
 Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems
 like [too many simultaneous connections](#user-content-faq23) or even the account being blocked.
-To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
+To prevent such problems, FullEmail waits 90 seconds until trying to reconnect again.
 
 You can long press *Settings* in the navigation menu to reconnect immediately.
 
@@ -1849,7 +1849,7 @@ This has a lot of advantages, but the also causes the need for message specific 
 [Gmail]/Spam
 ```
 
-~~By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.~~
+~~By setting the namespace prefix to *[Gmail]* FullEmail will automatically remove *[Gmail]/* from all folder names.~~
 
 <br />
 
@@ -1866,7 +1866,7 @@ Then use the three dot action button to execute the desired action.
 **(56) Can you add support for JMAP?**
 
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
-so it is not worth a lot of effort to add support for this to FairEmail.
+so it is not worth a lot of effort to add support for this to FullEmail.
 
 <br />
 
@@ -1907,11 +1907,11 @@ so it is better to resize images with an image editor first.
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FullEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![External image](https://github.com/M66B/FullEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1932,8 +1932,8 @@ but even Google's Chrome cannot handle this.
 * Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
 * Did you know there is an advanced option to mark messages read when they are moved? (archiving and trashing is also moving)
-* Did you know that you can select text (or an email address) in any app on recent Android versions and let FairEmail search for it?
-* Did you know that FairEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
+* Did you know that you can select text (or an email address) in any app on recent Android versions and let FullEmail search for it?
+* Did you know that FullEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
 * Did you know that you can long press a reply template to create a draft message from the template?
 * Did you know that you can long press, hold and swipe to select a range of messages?
 * Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
@@ -2033,13 +2033,13 @@ you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.Se
 
 Inline (image) attachments are shown dimmed.
 [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically,
-but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40),
-FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
+but since FullEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40),
+FullEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
 
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) Is FullEmail available in the Google Play Family Library?**
 
 "*You can't share in-app purchases and free apps with your family members.*"
 
@@ -2220,7 +2220,7 @@ Moving messages across accounts is safe because the raw, original messages will 
 and because the source messages will be deleted only after the target messages have been added
 
 Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize,
-else FairEmail needs to connect to the folder(s) for each message.
+else FullEmail needs to connect to the folder(s) for each message.
 
 <br />
 
@@ -2228,9 +2228,9 @@ else FairEmail needs to connect to the folder(s) for each message.
 **(74) Why do I see duplicate messages?**
 
 Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too.
-FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+FullEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders.
+Gmail allows one message to have multiple labels, which are presented to FullEmail as folders.
 This means that messages with multiple labels will be shown multiple times as well.
 
 <br />
@@ -2256,17 +2256,17 @@ This can be useful after changing the folder settings to not download the messag
 **(77) Why are messages sometimes shown with a small delay?**
 
 Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay.
-FairEmail is designed to dynamically handle a large number of messages without running out of memory.
+FullEmail is designed to dynamically handle a large number of messages without running out of memory.
 This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
 
 Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time.
 Note that there is no *the* next message because in the meantime a new message might have been arrived.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison.
+When comparing the speed of FullEmail with similar apps this should be part of the comparison.
 It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory,
 but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/),
+FullEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/),
 so there is little room for performance improvements.
 
 <br />
@@ -2280,7 +2280,7 @@ Note that an end time equal to or earlier than the start time is considered to b
 Automation, see below, can be used for more advanced schedules,
 like for example multiple synchronization periods per day or different synchronization periods for different days.
 
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile,
+It is possible to install FullEmail in multiple user profiles, for example a personal and a work profile, and to configure FullEmail differently in each profile,
 which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
 
 It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition.
@@ -2292,7 +2292,7 @@ which could be used to (not) silence specific (business) notifications.
 Please [see here](https://support.google.com/android/answer/9069335) for more information.
 
 For more complex schemes you could set one or more accounts to manual synchronization
-and send this command to FairEmail to check for new messages:
+and send this command to FullEmail to check for new messages:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
@@ -2304,7 +2304,7 @@ For a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
 ```
 
-You can also automate turning receiving messages on and off by sending these commands to FairEmail:
+You can also automate turning receiving messages on and off by sending these commands to FullEmail:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE
@@ -2353,7 +2353,7 @@ Scheduling is a pro feature.
 <a name="faq79"></a>
 **(79) How do I use synchronize on demand (manual)?**
 
-Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time.
+Normally, FullEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time.
 If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings.
 This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 
@@ -2373,7 +2373,7 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 ~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~
 ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
 
-~~FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.~~
+~~FullEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.~~
 
 <br />
 
@@ -2391,9 +2391,9 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is.
 In short tracking images keep track if you opened a message.
 
-FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+FullEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FullEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2404,7 +2404,7 @@ Automatic recognition of tracking images can be disabled in the privacy settings
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
-The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
+The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FullEmail.
 
 Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people.
 This is also why the number of times contacted and the last time contacted is being recorded
@@ -2426,7 +2426,7 @@ An identity is available for sending a new message or replying or forwarding an 
 * the associated account is set to synchronize (receive messages)
 * the associated account has a drafts folder
 
-FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
+FullEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
 
 <br />
 
@@ -2484,7 +2484,7 @@ Y1 OK CAPABILITY completed
 <a name="faq89"></a>
 **(89) How can I send plain text only messages?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days.
+By default FullEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days.
 If you want/need to send plain text messages only, you can enable this in the advanced identity options.
 You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
 
@@ -2493,7 +2493,7 @@ You might want to create a new identity for this if you want/need to select send
 <a name="faq90"></a>
 **(90) Why are some texts linked while not being a link?**
 
-FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience.
+FullEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience.
 However, texts and links are not easily distinguished,
 especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words.
 This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
@@ -2528,10 +2528,10 @@ Moreover, email servers have access to information, like the IP address, etc of 
 Spam filtering based on message headers might have been feasible,
 but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
-Recent versions of FairEmail can filter spam to a certain extend using a message classifier.
+Recent versions of FullEmail can filter spam to a certain extend using a message classifier.
 Please see [this FAQ](#user-content-faq163) for more information about this.
 
-Of course you can report messages as spam with FairEmail,
+Of course you can report messages as spam with FullEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
 This can be done automatically with [filter rules](#user-content-faq71) too.
 Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
@@ -2543,11 +2543,11 @@ because the email server uses the messages in the spam folder to "learn" what sp
 
 If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
 
-Also, FairEmail can show a small red warning flag
+Also, FullEmail can show a small red warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
 You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
+FullEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
 This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
 If the domain name of the sender and the domain name of the reply address differ,
@@ -2563,7 +2563,7 @@ The sender might use [this tool](https://www.mail-tester.com/) to check authenti
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start,
+FullEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start,
 so it is not possible to store the app on external storage media, like an sdcard.
 See also [here](https://developer.android.com/guide/topics/data/install-location).
 
@@ -2589,7 +2589,7 @@ See also [this FAQ](#user-content-faq92).
 <a name="faq95"></a>
 **(95) Why are not all apps shown when selecting an attachment or image?**
 
-For privacy and security reasons FairEmail does not have permissions to directly access files,
+For privacy and security reasons FullEmail does not have permissions to directly access files,
 instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
 
 If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider).
@@ -2613,7 +2613,7 @@ The IMAP settings are part of the (custom) account settings and the SMTP setting
 <a name="faq97"></a>
 **(97) What is 'cleanup'?**
 
-About each four hours FairEmail runs a cleanup job that:
+About each four hours FullEmail runs a cleanup job that:
 
 * Removes old message texts
 * Removes old attachment files
@@ -2628,15 +2628,15 @@ Note that the cleanup job will only run when the synchronize service is active.
 <a name="faq98"></a>
 **(98) Why can I still pick contacts after revoking contacts permissions?**
 
-After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore.
-However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+After revoking contacts permissions Android does not allow FullEmail access to your contacts anymore.
+However, picking contacts is delegated to and done by Android and not by FullEmail, so this will still be possible without contacts permissions.
 
 <br />
 
 <a name="faq99"></a>
 **(99) Can you add a rich text or markdown editor?**
 
-FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
+FullEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
 
 A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor
 would not be used by many people on a small mobile device and, more important,
@@ -2665,7 +2665,7 @@ category:promotions
 
 Unfortunately, this is not possible for snoozed messages folder.
 
-You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again
+You can use *Force sync* in the three-dots menu of the unified inbox to let FullEmail synchronize the folder list again
 and you can long press the folders to enable synchronization.
 
 <br />
@@ -2686,7 +2686,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default).
 However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct,
-which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+which is not always the case. Particularly not when taking a photo with a camara app from FullEmail.
 
 Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
 
@@ -2695,7 +2695,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <a name="faq104"></a>
 **(104) What do I need to know about error reporting?**
 
-* Error reports will help improve FairEmail
+* Error reports will help improve FullEmail
 * Error reporting is optional and opt-in
 * Error reporting can be enabled/disabled in the settings, section miscellaneous
 * Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
@@ -2709,7 +2709,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <a name="faq105"></a>
 **(105) How does the roam-like-at-home option work?**
 
-FairEmail will check if the country code of the SIM card and the country code of the network
+FullEmail will check if the country code of the SIM card and the country code of the network
 are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent)
 and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
 
@@ -2736,17 +2736,17 @@ When enabled the badge count will be the same as the number of new message notif
 When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
 
 This feature depends on support of your launcher.
-FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
-If it doesn't work, this cannot be fixed by changes in FairEmail.
+FullEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
+If it doesn't work, this cannot be fixed by changes in FullEmail.
 
 Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2),
-despite FairEmail explicitly requesting not to show a *badge* for this notification.
+despite FullEmail explicitly requesting not to show a *badge* for this notification.
 This could be caused by a bug in the launcher app or in your Android version.
 Please double check if the notification dot (badge) is disabled for the receive (service) notification channel.
-You can go to the right notification channel settings via the notification settings of FairEmail.
+You can go to the right notification channel settings via the notification settings of FullEmail.
 This might not be obvious, but you can tap on the channel name for more settings.
 
-FairEmail does send a new message count intent as well:
+FullEmail does send a new message count intent as well:
 
 ```
 eu.faircode.email.NEW_MESSAGE_COUNT
@@ -2787,11 +2787,11 @@ However, not all servers support IMAP keywords and besides that there are no sta
 ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~
 ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~
 ~~So, only these third parties can acquire the required permission from Google.~~
-~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
+~~Since these third parties do not actually support FullEmail, they are most likely not going to request the required permission.~~
 
 ~~You can solve this in two ways:~~
 
-* ~~Switch to the official version of FairEmail, see [here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for the options~~
+* ~~Switch to the official version of FullEmail, see [here](https://github.com/M66B/FullEmail/blob/master/README.md#downloads) for the options~~
 * ~~Use app specific passwords, see [this FAQ](#user-content-faq6)~~
 
 ~~Using *select account* in third party builds is not possible in recent versions anymore.~~
@@ -2835,7 +2835,7 @@ are not available, for example when using a non Play store version of the app, o
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-FairEmail is an email client only, so you need to bring your own email address.
+FullEmail is an email client only, so you need to bring your own email address.
 Note that this is clearly mentioned in the app description.
 
 There are plenty of email providers to choose from.
@@ -2854,13 +2854,13 @@ Using your own (custom) domain name, which is supported by most email providers,
 **(113) How does biometric authentication work?**
 
 If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen.
-When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running.
-Activity is navigation within FairEmail, for example opening a conversation thread.
+When enabled FullEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FullEmail was running.
+Activity is navigation within FullEmail, for example opening a conversation thread.
 The inactivity period duration can be configured in the miscellaneous settings.
-When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+When biometric authentication is enabled new message notifications will not show any content and FullEmail won't be visible on the Android recents screen.
 
 Biometric authentication is meant to prevent others from seeing your messages only.
-FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+FullEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
 
 Biometric authentication is a pro feature.
 
@@ -2872,7 +2872,7 @@ Biometric authentication is a pro feature.
 The format of the settings files of most other email apps is not documented, so this is difficult.
 Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break.
 Also, settings are often incompatible.
-For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages
+For example, FullEmail has unlike most other email apps settings for the number of days to synchronize messages
 and for the number of days to keep messages, mainly to save on battery usage.
 Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
@@ -2884,12 +2884,12 @@ Moreover, setting up an account/identity with the quick setup wizard is simple, 
 Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited,
 which is quite inconvenient when you made a typo in an email address.
 
-Note that FairEmail will select the address only when long pressing an address, which makes it easy to delete an address.
+Note that FullEmail will select the address only when long pressing an address, which makes it easy to delete an address.
 
 Chips are not suitable for showing in a list
 and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.
 
-Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
+Reverted [commit](https://github.com/M66B/FullEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
 
 <br />
 
@@ -2916,10 +2916,10 @@ So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Make sure you installed FullEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
+* Open FullEmail and navigate to the pro features screen to let FullEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings.
 Restarting the device might be necessary to let the Play store recognize the purchase correctly.
@@ -2931,7 +2931,7 @@ Note that:
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
-* An app like FairEmail cannot select which Google account to use
+* An app like FullEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
 * Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
 
@@ -2976,10 +2976,10 @@ See [this FAQ](#user-content-faq70) about when messages in a conversation will b
 <a name="faq121"></a>
 **(121) How are messages grouped into a conversation?**
 
-By default FairEmail groups messages in conversations. This can be turned of in the display settings.
+By default FullEmail groups messages in conversations. This can be turned of in the display settings.
 
-FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers.
-FairEmail does not group on other criteria, like the subject,
+FullEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers.
+FullEmail does not group on other criteria, like the subject,
 because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
 
 <br />
@@ -2994,17 +2994,17 @@ because this could result in grouping unrelated messages and would be at the exp
 <br />
 
 <a name="faq123"></a>
-**(123) What will happen when FairEmail cannot connect to an email server?**
+**(123) What will happen when FullEmail cannot connect to an email server?**
 
-If FairEmail cannot connect to an email server to synchronize messages,
+If FullEmail cannot connect to an email server to synchronize messages,
 for example if the internet connection is bad or a firewall or a VPN is blocking the connection,
-FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power).
-If this fails, FairEmail will schedule an alarm to retry after 5, 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+FullEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power).
+If this fails, FullEmail will schedule an alarm to retry after 5, 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
 does not allow to wake the device earlier than after 15 minutes.
 
-*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+*Force sync* in the three-dots menu of the unified inbox can be used to let FullEmail attempt to reconnect without waiting.
 
 Sending messages will be retried on connectivity changes only
 (reconnecting to the same network or connecting to another network)
@@ -3055,14 +3055,14 @@ Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 <a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 
-FairEmail fetches a message in two steps:
+FullEmail fetches a message in two steps:
 
 1. Fetch message headers
 1. Fetch message text and attachments
 
 Directly after the first step new messages will be notified.
 However, only until after the second step the message text will be available.
-FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+FullEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
 
 Since there is no guarantee that a message text will always be fetched directly after a message header,
 it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
@@ -3074,7 +3074,7 @@ Note that this applies to wearables not showing a preview text too, even when th
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*.
 Note that some wearables are known to crash with this option enabled.
 
-If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail
+If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FullEmail
 when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
 
 Some companion apps ignore [local only](https://developer.android.com/training/wearables/notifications/bridger#non-bridged) notifications,
@@ -3103,11 +3103,11 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 
 ProtonMail uses a proprietary email protocol
 and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/),
-so you cannot use FairEmail to access ProtonMail.
+so you cannot use FullEmail to access ProtonMail.
 
 Tutanota uses a proprietary email protocol
 and [does not support IMAP](https://tutanota.com/faq/#imap),
-so you cannot use FairEmail to access Tutanota.
+so you cannot use FullEmail to access Tutanota.
 
 <br />
 
@@ -3121,7 +3121,7 @@ Replying to the message might not be possible and might result in an error.
 This could indicate a falsified email address and/or spam.
 
 The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software.
-FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
+FullEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
 
 The error *...SendFailedException...* means that there was a problem while sending a message.
 The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
@@ -3153,8 +3153,8 @@ Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix th
 
 There is a bug in some Android versions
 causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to mute notifications.
-Since FairEmail shows new message notifications right after fetching the message headers
-and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
+Since FullEmail shows new message notifications right after fetching the message headers
+and FullEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FullEmail.
 
 Android might rate limit the notification sound, which can cause some new message notifications to be silent.
 
@@ -3166,7 +3166,7 @@ Android might rate limit the notification sound, which can cause some new messag
 The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported.
 For this reason you won't find many, if any, other email clients supporting ActiveSync.
 
-Note that the desciption of FairEmail starts with the remark
+Note that the desciption of FullEmail starts with the remark
 that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
 
 <br />
@@ -3183,7 +3183,7 @@ In the account settings (Settings, tap Manual setup, tap Accounts, tap account) 
 Since the IMAP protocol is meant to synchronize two ways,
 deleting a message from the device would result in fetching the message again when synchronizing again.
 
-However, FairEmail supports hiding messages,
+However, FullEmail supports hiding messages,
 either via the three-dots menu in the action bar just above the message text
 or by multiple selecting messages in the message list.
 Basically this is the same as "leave on server" of the POP3 protocol
@@ -3231,7 +3231,7 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 **(138) Can you add calendar/contact/tasks/notes management?**
 
 Calendar, contact, task and note management can better be done by a separate, specialized app.
-Note that FairEmail is a specialized email app, not an office suite.
+Note that FullEmail is a specialized email app, not an office suite.
 
 Also, I prefer to do a few things very well, instead of many things only half.
 Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
@@ -3241,7 +3241,7 @@ You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/
 Most providers support exporting your contacts.
 Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
 
-Note that FairEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
+Note that FullEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
 
 <br />
 
@@ -3254,7 +3254,7 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 The error *User is authenticated but not connected* might occur if:
 
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
-* The account password was changed: changing it in FairEmail too should fix the problem
+* The account password was changed: changing it in FullEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 * IMAP was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) how an administrator can enable it again
@@ -3277,10 +3277,10 @@ When using a shared mailbox, you might want to enable the option *Synchronize sh
 **(140) Why does the message text contain strange characters?**
 
 Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software.
-FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
+FullEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
 when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified.
 Other than that there is no way to reliably determine the correct character encoding automatically,
-so this cannot be fixed by FairEmail. The right action is to complain to the sender.
+so this cannot be fixed by FullEmail. The right action is to complain to the sender.
 
 <br />
 
@@ -3288,10 +3288,10 @@ so this cannot be fixed by FairEmail. The right action is to complain to the sen
 **(141) How can I fix 'A drafts folder is required to send messages'?**
 
 To store draft messages a drafts folder is required.
-In most cases FairEmail will automatically select the drafts folders on adding an account
+In most cases FullEmail will automatically select the drafts folders on adding an account
 based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends.
 However, some email servers are not configured properly and do not send these attributes.
-In this case FairEmail tries to identify the drafts folder by name,
+In this case FullEmail tries to identify the drafts folder by name,
 but this might fail if the drafts folder has an unusual name or is not present at all.
 
 You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom).
@@ -3310,8 +3310,8 @@ Quick link for Gmail (will work on a desktop computer only): [https://mail.googl
 
 Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
 
-That said, FairEmail is able to properly handle sent messages in the inbox.
-FairEmail will mark outgoing messages with a sent messages icon for example.
+That said, FullEmail is able to properly handle sent messages in the inbox.
+FullEmail will mark outgoing messages with a sent messages icon for example.
 
 The best solution would be to enable showing the sent folder in the unified inbox
 by long pressing the sent folder in the folder list and enabling *Show in unified inbox*.
@@ -3344,7 +3344,7 @@ Note that trashing a message will permanently remove it from the server and that
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FullEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed.
 In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
@@ -3384,12 +3384,12 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
+Since the sent date/time is optional and can be manipulated by the sender, FullEmail uses the server received date/time by default.
 
 Sometimes the server received date/time is incorrect,
 mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
+In these rare cases, it is possible to let FullEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
 This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages.
@@ -3400,7 +3400,7 @@ To solve this, long press the folder(s) in the folder list and select *Delete lo
 <a name="faq147"></a>
 **(147) What should I know about third party versions?**
 
-You likely came here because you are using a third party build of FairEmail.
+You likely came here because you are using a third party build of FullEmail.
 
 There is **only support** on the latest Play store version, the latest GitHub release and
 the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
@@ -3418,7 +3418,7 @@ because Android refuses to install the same app with a different signature for s
 Note that the GitHub version will automatically check for updates.
 When desired, this can be turned off in the miscellaneous settings.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+Please [see here](https://github.com/M66B/FullEmail/blob/master/README.md#user-content-downloads) for all download options.
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
@@ -3454,7 +3454,7 @@ Tapping on the notification will synchronize all folders for which synchronizati
 Cancelling calendar invites (removing calendar events) requires write calendar permission,
 which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
 
-Given the goal of FairEmail, privacy and security, and given that it is easy to remove a calendar event manually,
+Given the goal of FullEmail, privacy and security, and given that it is easy to remove a calendar event manually,
 it is not a good idea to request this permission for just this reason.
 
 Inserting new calendar events can be done without permissions with special [intents](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents).
@@ -3587,7 +3587,7 @@ Tracking images will be disabled only if the corresponding main 'disable' option
 Tracking images will not be recognized when the domain is classified as '*Content*',
 see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+This command can be sent to FullEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.DISCONNECT.ME
@@ -3615,7 +3615,7 @@ because both email servers and not all people can handle this, risking unexpecte
 A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages.
-Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+Note that messages with a *\Deleted* flag will not be shown in FullEmail.
 
 <br />
 
@@ -3649,7 +3649,7 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 
 Message classification will attempt to automatically group emails into classes, based on their contents,
 using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
-In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+In the context of FullEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
 You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only.
 The classifier will 'learn' from new messages in the inbox and spam folder by default.
@@ -3666,10 +3666,10 @@ can result in [false positives and false negatives](https://en.wikipedia.org/wik
 See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder.
-Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder.
-Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder.
-After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder.
-Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder.
+Each time you move a message into this folder you'll train FullEmail that similar messages belong in this folder.
+Each time you move a message out of this folder you'll train FullEmail that similar messages do not belong in this folder.
+After moving some messages into the 'marketing' folder, FullEmail will start moving similar messages automatically into this folder.
+Or, the other way around, after moving some messages out of the 'marketing' folder, FullEmail will stop moving similar messages automatically into this folder.
 This will work best with messages with similar content (email addresses, subject and message text).
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
@@ -3709,7 +3709,7 @@ Message classification is a pro feature, except for the spam folder.
 **(164) Can you add customizable themes?**
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes,
-which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+which means all themes need [to be predefined](https://github.com/M66B/FullEmail/blob/master/app/src/main/res/values/styles.xml).
 
 Since for each theme there needs to be a light, dark and black variant,
 it is not feasible to add for each color combination (literally millions) a predefined theme.
@@ -3727,7 +3727,7 @@ The *Solarized* theme is described in [this article](https://en.wikipedia.org/wi
 **(165) Is Android Auto supported?**
 
 Yes, Android Auto is supported, but only with the GitHub version,
-please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+please [see here](https://forum.xda-developers.com/t/app-5-0-FullEmail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
 
 For notification (messaging) support you'll need to enable the following notification options:
 
@@ -3797,7 +3797,7 @@ For more information, please see [this article](https://en.wikipedia.org/wiki/Do
 
 You can check common block lists for example [here](https://mxtoolbox.com/blacklists.aspx).
 
-FairEmail currently uses the following block lists:
+FullEmail currently uses the following block lists:
 
 * [Spamhaus](https://www.spamhaus.org/) &#8211; [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/) &#8212; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
 * [Spamcop](https://www.spamcop.net/) &#8211; [Legal info](https://www.spamcop.net/fom-serve/cache/297.html) &#8212; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
@@ -3810,7 +3810,7 @@ From version 1.1627 it is possible to enable/disable individual blocklists in th
 <a name="faq169"></a>
 **(169) Why does the app not start automatically?**
 
-FairEmail requests Android to start the app when the device starts up.
+FullEmail requests Android to start the app when the device starts up.
 Obviously, this depends on Android as the app cannot start itself.
 
 Some Android versions, such as EMUI, have settings to enable or disable auto starting apps.
@@ -3830,7 +3830,7 @@ Creating a local folder only and storing messages on your device only is a bad i
 because losing or breaking your device would mean losing your messages.
 Therefore this isn't supportable.
 
-Please note that FairEmail doesn't store a copy of your messages in the cloud for privacy reasons.
+Please note that FullEmail doesn't store a copy of your messages in the cloud for privacy reasons.
 
 If you want to store messages in folders, please use IMAP,
 so that there is always a copy of the messages on the email server.
@@ -3857,7 +3857,7 @@ When a contact is store in the local contact database, you can delete it like th
 <a name="faq172"></a>
 **(172) How can I import contacts?**
 
-Like most Android apps, FairEmail consults the Android address book for contact information.
+Like most Android apps, FullEmail consults the Android address book for contact information.
 
 There is also a local contact database, which is filled with contacts from sent and received messages.
 You can enable/disable this in the send settings of the app.
@@ -3882,9 +3882,9 @@ Related questions:
 **(173) What is the difference between Play store / GitHub / F-Droid version?**
 
 * The Play store version does not support Android Auto, see [this FAQ](#user-content-faq165) for more information
-* The Play store version does not support [Gravatars](https://gravatar.com/), see [here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-85226179) for the reason
+* The Play store version does not support [Gravatars](https://gravatar.com/), see [here](https://forum.xda-developers.com/t/app-5-0-FullEmail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-85226179) for the reason
 * The Play store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in this Android version of Amazon
-* The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases) and is updated more frequently
+* The GitHub version will check for [updates on GitHub](https://github.com/M66B/FullEmail/releases) and is updated more frequently
 * The GitHub version has some different links and some options have a different default values (more geared to advanced users)
 * The F-Droid build does not support OAuth, see [this FAQ](#user-content-faq147) about why not
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
@@ -3910,7 +3910,7 @@ _submission._tcp SRV 0 1 587 smtp.example.com.
 [Mozilla's autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) is supported too,
 but only if the configuration file is accessible via a secure (https) connection.
 
-FairEmail will also check the [MX record](https://en.wikipedia.org/wiki/MX_record) and if common email ports (143/993, 465/587) are open.
+FullEmail will also check the [MX record](https://en.wikipedia.org/wiki/MX_record) and if common email ports (143/993, 465/587) are open.
 
 There is no auto discovery for POP3.
 
@@ -3919,27 +3919,27 @@ There is no auto discovery for POP3.
 
 <h2><a name="get-support"></a>Get support</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+FullEmail is supported on Android smartphones and tablets and ChromeOS only.
 
 Only the latest Play store version and latest GitHub release are supported.
 The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release.
 This also means that downgrading is not supported.
 
-There is no support on things that are not directly related to FairEmail.
+There is no support on things that are not directly related to FullEmail.
 
 There is no support on building and developing things by yourself.
 
 Requested features should:
 
 * be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* not complicate the usage of FullEmail
+* fit within the philosophy of FullEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=FullEmailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

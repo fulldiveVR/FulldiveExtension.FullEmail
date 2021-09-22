@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
-
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
+   
 */
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
@@ -150,7 +135,7 @@ public class EmailService implements AutoCloseable {
     // TLS_EMPTY_RENEGOTIATION_INFO_SCSV https://tools.ietf.org/html/rfc5746
 
     static {
-        System.loadLibrary("fairemail");
+        System.loadLibrary("Full Email");
     }
 
     private static native int jni_socket_keep_alive(int fd, int seconds);
@@ -355,7 +340,7 @@ public class EmailService implements AutoCloseable {
             String user, String password,
             ServiceAuthenticator.IAuthenticated intf,
             String certificate, String fingerprint) throws MessagingException {
-        properties.put("fairemail.server", host);
+        properties.put("Full Email.server", host);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean bind_socket = prefs.getBoolean("bind_socket", false);
@@ -366,7 +351,7 @@ public class EmailService implements AutoCloseable {
                 Network active = cm.getActiveNetwork();
                 if (active != null) {
                     EntityLog.log(context, "Binding to active network " + active);
-                    properties.put("fairemail.factory", active.getSocketFactory());
+                    properties.put("Full Email.factory", active.getSocketFactory());
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
@@ -409,7 +394,7 @@ public class EmailService implements AutoCloseable {
                 properties.put("mail." + protocol + ".auth.xoauth2.disable", "true");
 
             if (auth == AUTH_TYPE_OAUTH && "imap.mail.yahoo.com".equals(host))
-                properties.put("mail." + protocol + ".yahoo.guid", "FAIRMAIL_V1");
+                properties.put("mail." + protocol + ".yahoo.guid", "Full Email_V1");
 
             connect(host, port, auth, user, authenticator, factory);
         } catch (AuthenticationFailedException ex) {
@@ -1052,7 +1037,7 @@ public class EmailService implements AutoCloseable {
         }
 
         try {
-            boolean tcp_keep_alive = Boolean.parseBoolean(System.getProperty("fairemail.tcp_keep_alive"));
+            boolean tcp_keep_alive = Boolean.parseBoolean(System.getProperty("Full Email.tcp_keep_alive"));
             if (tcp_keep_alive) {
                 Log.i("Enabling TCP keep alive");
 

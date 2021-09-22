@@ -136,7 +136,6 @@
     </style>
 
     <!-- Light -->
-
     <style name="AppThemeBlueOrangeLight" parent="AppThemeBaseLight">
         <item name="colorPrimary">@color/lightBluePrimary</item>
         <item name="colorPrimaryDark">@color/lightBluePrimaryDark</item>

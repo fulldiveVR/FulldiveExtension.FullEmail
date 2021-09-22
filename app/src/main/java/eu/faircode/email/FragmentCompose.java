@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -624,10 +609,10 @@ public class FragmentCompose extends FragmentBase {
                 LogPrinter lp = null;
                 if (BuildConfig.DEBUG &&
                         (added != null || removed != null))
-                    lp = new LogPrinter(android.util.Log.INFO, "FairEmail");
+                    lp = new LogPrinter(android.util.Log.INFO, "Full Email");
 
                 if (lp != null)
-                    TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "---before>");
+                    TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "Full Email"), "---before>");
 
                 if (added != null)
                     try {
@@ -1264,8 +1249,8 @@ public class FragmentCompose extends FragmentBase {
 
                         File rfile = EntityMessage.getFile(context, id);
                         Document doc = JsoupEx.parse(rfile);
-                        Elements ref = doc.select("div[fairemail=reference]");
-                        ref.removeAttr("fairemail");
+                        Elements ref = doc.select("div[Full Email=reference]");
+                        ref.removeAttr("Full Email");
 
                         Document document = JsoupEx.parse(body);
                         if (plain) {
@@ -4613,7 +4598,7 @@ public class FragmentCompose extends FragmentBase {
                                 !"dsn".equals(action)) {
                             // Reply/forward
                             Element reply = document.createElement("div");
-                            reply.attr("fairemail", "reference");
+                            reply.attr("Full Email", "reference");
 
                             reply.appendElement("br");
 

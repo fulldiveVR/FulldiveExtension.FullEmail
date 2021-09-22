@@ -1,22 +1,7 @@
 package eu.faircode.email;
 
 /*
-    This file is part of FairEmail.
 
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
 import android.app.ActivityManager;
@@ -136,7 +121,7 @@ import io.requery.android.database.CursorWindowAllocationException;
 public class Log {
     private static int level = android.util.Log.INFO;
     private static final int MAX_CRASH_REPORTS = 5;
-    private static final String TAG = "fairemail";
+    private static final String TAG = "Full Email";
 
     public static void setLevel(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -428,7 +413,7 @@ public class Log {
                         Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
                         event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
 
-                        String theme = prefs.getString("theme", "blue_orange_system");
+                        String theme = prefs.getString("theme", "orange_blue_black");
                         event.addMetadata("extra", "theme", theme);
                         event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
                     }
@@ -1526,7 +1511,7 @@ public class Log {
             sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
         if (log != null)
             sb.append(log);
-        String body = "<pre class=\"fairemail_debug_info\">" + TextUtils.htmlEncode(sb.toString()) + "</pre>";
+        String body = "<pre class=\"Full Email_debug_info\">" + TextUtils.htmlEncode(sb.toString()) + "</pre>";
 
         EntityMessage draft;
 
@@ -2334,6 +2319,6 @@ public class Log {
     }
 
     static InternetAddress myAddress() throws UnsupportedEncodingException {
-        return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode", StandardCharsets.UTF_8.name());
+        return new InternetAddress("marcel+Full Email@faircode.eu", "FairCode", StandardCharsets.UTF_8.name());
     }
 }
