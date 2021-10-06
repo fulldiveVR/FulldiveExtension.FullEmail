@@ -7,6 +7,7 @@ package eu.faircode.email;
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -36,6 +37,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
+
+import com.bugsnag.android.appextension.EmailHelper;
 
 import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthState;
@@ -167,7 +170,11 @@ public class FragmentOAuth extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+//                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    EmailHelper.sendEmailToSupport(activity);
+                }
             }
         });
 
@@ -317,7 +324,7 @@ public class FragmentOAuth extends FragmentBase {
                 params.put("access_type", "offline");
 
             if ("yandex".equals(provider.id)) {
-                params.put("device_name", "Android/Full Email");
+                params.put("device_name", "Android/FullEmail");
                 params.put("force_confirm", "true");
             }
 
@@ -357,6 +364,9 @@ public class FragmentOAuth extends FragmentBase {
 
             EntityLog.log(context, "OAuth request provider=" + provider.id + " uri=" + authRequest.toUri());
             Intent authIntent;
+
+//            authIntent = new Intent(getActivity(), WebViewLoginActivity.class);
+//            authIntent.putExtra("URL", authRequest.toUri().toString());
             try {
                 authIntent = authService.getAuthorizationRequestIntent(authRequest);
             } catch (ActivityNotFoundException ex) {

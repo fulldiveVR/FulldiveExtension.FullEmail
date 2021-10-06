@@ -15,6 +15,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -40,6 +41,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+
+import com.bugsnag.android.appextension.EmailHelper;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -172,6 +175,7 @@ public class FragmentGmail extends FragmentBase {
         });
 
         tvAppPassword.setPaintFlags(tvAppPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvAppPassword.setVisibility(View.GONE);
         tvAppPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,7 +186,11 @@ public class FragmentGmail extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+//                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    EmailHelper.sendEmailToSupport(activity);
+                }
             }
         });
 
@@ -296,7 +304,8 @@ public class FragmentGmail extends FragmentBase {
                             @Override
                             public void run(AccountManagerFuture<Bundle> future) {
                                 try {
-                                    Bundle bundle = future.getResult(GET_TOKEN_TIMEOUT, TimeUnit.MILLISECONDS);
+//                                    Bundle bundle = future.getResult(GET_TOKEN_TIMEOUT, TimeUnit.MILLISECONDS);
+                                    Bundle bundle = future.getResult();
                                     if (future.isCancelled())
                                         throw new IllegalArgumentException("Android failed to return a token");
 
@@ -394,6 +403,7 @@ public class FragmentGmail extends FragmentBase {
 
                 EmailProvider provider = EmailProvider
                         .fromDomain(context, "gmail.com", EmailProvider.Discover.ALL)
+//                        .fromEmail(context, user, EmailProvider.Discover.ALL)
                         .get(0);
 
                 List<EntityFolder> folders;

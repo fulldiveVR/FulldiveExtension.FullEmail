@@ -11,6 +11,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -48,6 +49,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
+import com.bugsnag.android.appextension.EmailHelper;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
@@ -460,7 +462,11 @@ public class FragmentAccount extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+//                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    EmailHelper.sendEmailToSupport(activity);
+                }
             }
         });
 

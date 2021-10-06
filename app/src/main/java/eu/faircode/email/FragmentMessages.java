@@ -233,7 +233,7 @@ import me.everything.android.ui.overscroll.adapters.RecyclerViewOverScrollDecorA
 public class FragmentMessages extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ViewGroup view;
     private SwipeRefreshLayoutEx swipeRefresh;
-    private TextView tvSupport;
+//    private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
@@ -253,7 +253,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private TextViewAutoCompleteAction etSearch;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
-    private Group grpSupport;
+//    private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
     private Group grpHintSelect;
@@ -467,7 +467,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
-        tvSupport = view.findViewById(R.id.tvSupport);
+//        tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
@@ -488,7 +488,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
-        grpSupport = view.findViewById(R.id.grpSupport);
+//        grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
@@ -516,13 +516,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        grpSupport.setVisibility(View.GONE);
-        tvSupport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActivityBilling.class));
-            }
-        });
+//        grpSupport.setVisibility(View.GONE);
+//        tvSupport.setOnClickLi1````````````````````````````````````````````````````````stener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getContext(), ActivityBilling.class));
+//            }
+//        });
 
         ibHintSupport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -4107,9 +4107,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if ("pro".equals(key) || "banner_hidden".equals(key)) {
             boolean pro = ActivityBilling.isPro(getContext());
             long banner_hidden = prefs.getLong("banner_hidden", 0);
-            grpSupport.setVisibility(
-                    !pro && banner_hidden == 0 && viewType == AdapterMessage.ViewType.UNIFIED
-                            ? View.VISIBLE : View.GONE);
+//            grpSupport.setVisibility(
+//                    !pro && banner_hidden == 0 && viewType == AdapterMessage.ViewType.UNIFIED
+//                            ? View.VISIBLE : View.GONE);
         }
     }
 

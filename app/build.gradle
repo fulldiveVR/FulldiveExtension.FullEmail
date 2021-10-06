@@ -17,7 +17,7 @@ android {
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
 
-        archivesBaseName = "Full Email-v$versionName"
+        archivesBaseName = "FullEmail-v$versionName"
         // buildConfigField "String", "RELEASE_NAME", getReleaseName()
 
         javaCompileOptions {
@@ -87,12 +87,10 @@ android {
     // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
     signingConfigs {
         release {
-            storeFile = file("../keys/keys_stage.jks")
-            storePassword = "FbFq7H2k8AdYHLnJsp5P"
-            keyAlias = "fulldive_stage"
-            keyPassword = "UcuEEErkS6T2qCXse2gQ"
-            v1SigningEnabled true
-            v2SigningEnabled true
+            storeFile file('../keys/keys.jks')
+            storePassword System.getenv("FULLDIVE_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("FULLDIVE_ALIAS")
+            keyPassword System.getenv("FULLDIVE_ALIAS_PASSWORD")
         }
     }
 
@@ -232,13 +230,13 @@ android {
     }
 }
 
-task copyMarkdown(type: Copy) {
-    from "${rootDir}"
-    into "src/main/assets"
-    include "SETUP.md"
-    include "ATTRIBUTION.md"
-}
-preBuild.dependsOn copyMarkdown
+//task copyMarkdown(type: Copy) {
+//    from "${rootDir}"
+//    into "src/main/assets"
+//    include "SETUP.md"
+//    include "ATTRIBUTION.md"
+//}
+//preBuild.dependsOn copyMarkdown
 
 task downloadPublicSuffixList(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task

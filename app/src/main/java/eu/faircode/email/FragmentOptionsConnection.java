@@ -437,7 +437,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                     tvNetworkInfo.setText(sb.toString());
                     tvNetworkMetered.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
                     tvNetworkRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
-                    cardDebug.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
+//                    cardDebug.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
                 }
             }
         });

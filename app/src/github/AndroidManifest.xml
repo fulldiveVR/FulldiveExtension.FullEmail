@@ -28,6 +28,10 @@
     <!-- https://github.com/leolin310148/ShortcutBadger/pull/368 -->
     <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
 
+    <permission
+        android:name="com.fulldive.extension.fullemail.access.read"
+        android:protectionLevel="signature" />
+
     <!-- https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference -->
     <uses-feature
         android:name="android.software.app_widgets"
@@ -87,6 +91,10 @@
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
+
+        <intent>
+            <action android:name="com.yandex.auth.action.YA_SDK_LOGIN" />
+        </intent>
     </queries>
 
     <application
@@ -126,7 +134,7 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
-            android:theme="@style/Theme.AppCompat.Translucent">
+            android:theme="@style/AppThemeBlack">
 
             <meta-data
                 android:name="android.app.shortcuts"
@@ -350,9 +358,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="oauth.faircode.eu"
-                    android:scheme="https" />
+                <data android:scheme="fullemail" />
             </intent-filter>
 
             <intent-filter>
@@ -502,5 +508,10 @@
                 <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+        <provider
+            android:name="com.bugsnag.android.appextension.FulldiveContentProvider"
+            android:authorities="com.fulldive.extension.fullemail.FulldiveContentProvider"
+            android:exported="true"
+            android:permission="com.fulldive.extension.fullemail.access.read" />
     </application>
 </manifest>

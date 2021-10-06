@@ -52,6 +52,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bugsnag.android.appextension.PopupManager;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.bouncycastle.util.encoders.DecoderException;
@@ -302,6 +303,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 hasAccount = (accounts != null && accounts.size() > 0);
             }
         });
+
+        new PopupManager().onAppStarted(this);
     }
 
     @Override
@@ -1552,7 +1555,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_TITLE, "Full Email_" +
+        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
                 new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
         Helper.openAdvanced(intent);
         return intent;

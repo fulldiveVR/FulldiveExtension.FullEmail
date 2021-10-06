@@ -402,7 +402,7 @@ public class EntityMessage implements Serializable {
             p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
 
         Element div = document.createElement("div")
-                .attr("Full Email", "reply");
+                .attr("fairemail", "reply");
         if (separate)
             div.appendElement("hr");
         div.appendChild(p);

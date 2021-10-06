@@ -69,6 +69,10 @@
             <action android:name="android.provider.MediaStore.RECORD_SOUND" />
         </intent>
 
+        <intent>
+            <action android:name="com.yandex.auth.action.YA_SDK_LOGIN" />
+        </intent>
+
         <package android:name="com.android.vending" />
 
         <package android:name="org.sufficientlysecure.keychain" />
@@ -128,7 +132,7 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
-            android:theme="@style/Theme.AppCompat.Translucent">
+            android:theme="@style/AppThemeBlack">
 
             <meta-data
                 android:name="android.app.shortcuts"
@@ -210,7 +214,7 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_search"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.Translucent">
+            android:theme="@style/AppThemeBlack">
 
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
@@ -224,7 +228,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="eu.faircode.email.search" />
+                <data android:scheme="com.fulldive.extension.fullemail.search" />
             </intent-filter>
         </activity>
 
@@ -346,24 +350,15 @@
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
             android:exported="true"
             tools:node="replace">
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="oauth.faircode.eu"
-                    android:scheme="https" />
-            </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="eu.faircode.email" />
+                <data
+                    android:scheme="fullemail"
+                   />
             </intent-filter>
         </activity>
 
@@ -507,6 +502,7 @@
 
         <receiver
             android:name="com.amazon.device.iap.ResponseReceiver"
+            android:exported="true"
             android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY">
             <intent-filter>
                 <action android:name="com.amazon.inapp.purchasing.NOTIFY" />

@@ -146,7 +146,7 @@ public class Helper {
 
     static final String PRIVACY_URI = "https://fulldive.com/privacy-policy";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
-    static final String SUPPORT_URI = "hhttps://fulldive.com/";
+    static final String SUPPORT_URI = "https://fulldive.com/";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String BIMI_PRIVACY_URI = "https://datatracker.ietf.org/doc/html/draft-brotman-ietf-bimi-guidance-03#section-7.4";
     static final String FAVICON_PRIVACY_URI = "https://en.wikipedia.org/wiki/Favicon";

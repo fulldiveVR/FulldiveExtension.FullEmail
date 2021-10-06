@@ -25,7 +25,7 @@ public class CharsetHelper {
     ));
 
     static {
-        System.loadLibrary("Full Email");
+        System.loadLibrary("fairemail");
     }
 
     private static native DetectResult jni_detect_charset(byte[] octets);

@@ -62,6 +62,16 @@ class PopupManager {
 		}
 	}
 
+	fun showContactSupportDialog(
+			context: Context,
+			positiveClickListener: () -> Unit
+	) {
+		ContactSupportDialogBuilder
+				.show(context) {
+					positiveClickListener.invoke()
+				}
+	}
+
 	private fun isBrowserInstalled(context: Context): Boolean {
 		val app = try {
 			context.packageManager.getApplicationInfo(BROWSER_PACKAGE_NAME, 0)

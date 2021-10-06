@@ -35,6 +35,7 @@ import com.amazon.device.iap.model.PurchaseUpdatesResponse;
 import com.amazon.device.iap.model.Receipt;
 import com.amazon.device.iap.model.RequestId;
 import com.amazon.device.iap.model.UserDataResponse;
+import com.bugsnag.android.appextension.EmailHelper;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -65,9 +66,9 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
         if (standalone) {
             setContentView(R.layout.activity_billing);
 
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+//            fragmentTransaction.commit();
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -211,10 +212,12 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
 
     private void onPurchaseError(Intent intent) {
         String message = intent.getStringExtra("message");
-        Uri uri = Helper.getSupportUri(this);
-        if (!TextUtils.isEmpty(message))
-            uri = uri.buildUpon().appendQueryParameter("message", "IAB: " + message).build();
-        Helper.view(this, uri, true);
+//        Uri uri = Helper.getSupportUri(this);
+//        if (!TextUtils.isEmpty(message))
+//            uri = uri.buildUpon().appendQueryParameter("message", "IAB: " + message).build();
+//        Helper.view(this, uri, true);
+
+        EmailHelper.sendEmailToSupport(this, "IAB: " + message);
     }
 
     private void update() {

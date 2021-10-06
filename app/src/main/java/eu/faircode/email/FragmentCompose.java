@@ -609,10 +609,10 @@ public class FragmentCompose extends FragmentBase {
                 LogPrinter lp = null;
                 if (BuildConfig.DEBUG &&
                         (added != null || removed != null))
-                    lp = new LogPrinter(android.util.Log.INFO, "Full Email");
+                    lp = new LogPrinter(android.util.Log.INFO, "fairemail");
 
                 if (lp != null)
-                    TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "Full Email"), "---before>");
+                    TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "fairemail"), "---before>");
 
                 if (added != null)
                     try {
@@ -1249,8 +1249,8 @@ public class FragmentCompose extends FragmentBase {
 
                         File rfile = EntityMessage.getFile(context, id);
                         Document doc = JsoupEx.parse(rfile);
-                        Elements ref = doc.select("div[Full Email=reference]");
-                        ref.removeAttr("Full Email");
+                        Elements ref = doc.select("div[fairemail=reference]");
+                        ref.removeAttr("fairemail");
 
                         Document document = JsoupEx.parse(body);
                         if (plain) {
@@ -4598,7 +4598,7 @@ public class FragmentCompose extends FragmentBase {
                                 !"dsn".equals(action)) {
                             // Reply/forward
                             Element reply = document.createElement("div");
-                            reply.attr("Full Email", "reference");
+                            reply.attr("fairemail", "reference");
 
                             reply.appendElement("br");
 

@@ -139,8 +139,8 @@ public class MessageHelper {
     private static final List<String> FLAG_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
             MessageHelper.FLAG_FORWARDED,
             MessageHelper.FLAG_NOT_JUNK,
-            MessageHelper.FLAG_CLASSIFIED, // Full Email
-            MessageHelper.FLAG_FILTERED, // Full Email
+            MessageHelper.FLAG_CLASSIFIED, // fairemail
+            MessageHelper.FLAG_FILTERED, // fairemail
             "$MDNSent", // https://tools.ietf.org/html/rfc3503
             "$SubmitPending",
             "$Submitted",
@@ -689,7 +689,7 @@ public class MessageHelper {
 
             for (Element child : document.body().children())
                 if (!TextUtils.isEmpty(child.text()) &&
-                        TextUtils.isEmpty(child.attr("Full Email"))) {
+                        TextUtils.isEmpty(child.attr("fairemail"))) {
                     String old = child.attr("style");
                     String style = HtmlHelper.mergeStyles(
                             "font-family:" + compose_font, old);
@@ -697,13 +697,13 @@ public class MessageHelper {
                         child.attr("style", style);
                 }
 
-            document.select("div[Full Email=signature]").removeAttr("Full Email");
-            document.select("div[Full Email=reference]").removeAttr("Full Email");
+            document.select("div[fairemail=signature]").removeAttr("fairemail");
+            document.select("div[fairemail=reference]").removeAttr("fairemail");
 
-            Elements reply = document.select("div[Full Email=reply]");
+            Elements reply = document.select("div[fairemail=reply]");
             if (message.plain_only != null && message.plain_only)
                 reply.select("strong").tagName("span");
-            reply.removeAttr("Full Email");
+            reply.removeAttr("fairemail");
 
             DB db = DB.getInstance(context);
             try {

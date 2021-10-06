@@ -2,7 +2,7 @@ package eu.faircode.email;
 
 /*
 
-*/
+ */
 
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,14 +25,16 @@ import java.util.Date;
 import java.util.List;
 
 public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
-    private static final long SPLASH_DELAY = 1500L; // milliseconds
+    private static final long SPLASH_DELAY = 100L; // milliseconds
     private static final long RESTORE_STATE_INTERVAL = 3 * 60 * 1000L; // milliseconds
     private static final long SERVICE_START_DELAY = 5 * 1000L; // milliseconds
+    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);
-
+        view = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        setContentView(view);
         if (!Helper.isSupportedDevice() && Helper.isPlayStoreInstall()) {
             setTheme(R.style.AppThemeOrangeBlueBlack);
             super.onCreate(savedInstanceState);
@@ -66,7 +70,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onExecuted(Bundle args, EntityMessage message) {
-                    finish();
+                    finishActivity();
 
                     if (message == null)
                         return;
@@ -105,7 +109,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             } catch (RuntimeException ex) {
                 Log.e(ex);
                 // https://issuetracker.google.com/issues/181805603
-                finish();
+                finishActivity();
                 startActivity(getIntent());
                 return;
             }
@@ -123,8 +127,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             final SimpleTask<Boolean> boot = new SimpleTask<Boolean>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
-                        getMainHandler().postDelayed(splash, SPLASH_DELAY);
+//                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
+                    getMainHandler().postDelayed(splash, SPLASH_DELAY);
                 }
 
                 @Override
@@ -196,13 +200,21 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     } else {
                         Intent setup = new Intent(ActivityMain.this, ActivitySetup.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(setup, options);
+                        Bundle finalOptions = options;
+                        getMainHandler().postDelayed(new Runnable() {
+                                                         @Override
+                                                         public void run() {
+                                                             startActivity(setup, finalOptions);
+                                                         }
+                                                     },
+                                SPLASH_DELAY);
+//                        startActivity(setup, options);
                     }
 
                     long end = new Date().getTime();
                     Log.i("Main booted " + (end - start) + " ms");
 
-                    finish();
+                    finishActivity();
                 }
 
                 @Override
@@ -227,7 +239,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                             @Override
                             public void run() {
                                 try {
-                                    finish();
+                                    finishActivity();
                                 } catch (Throwable ex) {
                                     Log.w(ex);
                                     /*
@@ -289,7 +301,17 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             fragmentTransaction.replace(R.id.content_frame, new FragmentEula()).addToBackStack("eula");
             fragmentTransaction.commit();
         }
-        new PopupManager().onAppStarted(this);
+    }
+
+    private void finishActivity() {
+        getMainHandler()
+                .postDelayed(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     finish();
+                                 }
+                             },
+                        SPLASH_DELAY);
     }
 
     @Override
@@ -302,7 +324,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
     public void onBackStackChanged() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0)
-            finish();
+            finishActivity();
     }
 
     @Override

@@ -10,6 +10,7 @@ import static com.google.android.material.textfield.TextInputLayout.END_ICON_PAS
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -46,6 +47,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.appextension.EmailHelper;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -488,7 +490,11 @@ public class FragmentIdentity extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+//                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    EmailHelper.sendEmailToSupport(activity);
+                }
             }
         });
 

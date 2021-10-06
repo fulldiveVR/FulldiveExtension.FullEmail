@@ -67,8 +67,8 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
                 String locale = Helper.getFAQLocale();
                 if (locale != null)
                     markdown = markdown.replace(
-                            "https://github.com/M66B/Full Email/blob/master/FAQ.md",
-                            "https://github.com/M66B/Full Email/blob/master/docs/FAQ-" + locale + ".md");
+                            "https://github.com/M66B/fairemail/blob/master/FAQ.md",
+                            "https://github.com/M66B/fairemail/blob/master/docs/FAQ-" + locale + ".md");
 
                 Markwon markwon = Markwon.builder(context)
                         .usePlugin(HtmlPlugin.create())

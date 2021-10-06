@@ -28,6 +28,10 @@
     <!-- https://github.com/leolin310148/ShortcutBadger/pull/368 -->
     <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
 
+    <permission
+        android:name="com.fulldive.extension.fullemail.access.read"
+        android:protectionLevel="signature" />
+
     <!-- https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference -->
     <uses-feature
         android:name="android.software.app_widgets"
@@ -78,6 +82,10 @@
             <action android:name="org.openintents.openpgp.IOpenPgpService2" />
         </intent>
 
+        <intent>
+            <action android:name="com.yandex.auth.action.YA_SDK_LOGIN" />
+        </intent>
+
         <!-- https://android-developers.googleblog.com/2015/10/in-app-translations-in-android.html -->
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT" />
@@ -126,7 +134,8 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
-            android:theme="@style/Theme.AppCompat.Translucent">
+            android:theme="@style/AppThemeBlack"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
 
             <meta-data
                 android:name="android.app.shortcuts"
@@ -159,7 +168,8 @@
             android:name=".ActivitySetup"
             android:exported="false"
             android:launchMode="singleTask"
-            android:parentActivityName=".ActivityMain" />
+            android:parentActivityName=".ActivityMain"
+            android:theme="@style/AppThemeBlack" />
 
         <activity
             android:name=".ActivitySignature"
@@ -222,7 +232,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="eu.faircode.email.search" />
+                <data android:scheme="com.fulldive.extension.fullemail.search.search" />
             </intent-filter>
         </activity>
 
@@ -350,9 +360,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="oauth.faircode.eu"
-                    android:scheme="https" />
+                <data android:scheme="fullemail" />
             </intent-filter>
 
             <intent-filter>
@@ -361,7 +369,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="eu.faircode.email" />
+                <data android:scheme="com.fulldive.extension.fullemail.search" />
             </intent-filter>
         </activity>
 
@@ -502,5 +510,11 @@
                 <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name="com.bugsnag.android.appextension.FulldiveContentProvider"
+            android:authorities="com.fulldive.extension.fullemail.FulldiveContentProvider"
+            android:exported="true"
+            android:permission="com.fulldive.extension.fullemail.access.read" />
     </application>
 </manifest>

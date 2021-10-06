@@ -2,9 +2,10 @@ package eu.faircode.email;
 
 /*
 
-*/
+ */
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
@@ -44,6 +45,8 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.appextension.EmailHelper;
+
 import java.util.List;
 
 public class FragmentSetup extends FragmentBase {
@@ -56,7 +59,7 @@ public class FragmentSetup extends FragmentBase {
     private Group grpWelcome;
 
     private TextView tvNoInternet;
-    private ImageButton ibHelp;
+//    private ImageButton ibHelp;
     private Button btnQuick;
     private TextView tvQuickNew;
 
@@ -121,7 +124,7 @@ public class FragmentSetup extends FragmentBase {
         grpWelcome = view.findViewById(R.id.grpWelcome);
 
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
-        ibHelp = view.findViewById(R.id.ibHelp);
+//        ibHelp = view.findViewById(R.id.ibHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
         tvQuickNew = view.findViewById(R.id.tvQuickNew);
 
@@ -172,9 +175,13 @@ public class FragmentSetup extends FragmentBase {
         tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent view = new Intent(Intent.ACTION_VIEW)
-                        .setData(Helper.getSupportUri(v.getContext()));
-                v.getContext().startActivity(view);
+//                Intent view = new Intent(Intent.ACTION_VIEW)
+//                        .setData(Helper.getSupportUri(v.getContext()));
+//                v.getContext().startActivity(view);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    EmailHelper.sendEmailToSupport(activity);
+                }
             }
         });
 
@@ -190,16 +197,16 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        ibHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle args = new Bundle();
-                args.putString("name", "SETUP.md");
-                FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
-                fragment.setArguments(args);
-                fragment.show(getChildFragmentManager(), "help");
-            }
-        });
+//        ibHelp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Bundle args = new Bundle();
+//                args.putString("name", "SETUP.md");
+//                FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+//                fragment.setArguments(args);
+//                fragment.show(getChildFragmentManager(), "help");
+//            }
+//        });
 
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -292,7 +299,11 @@ public class FragmentSetup extends FragmentBase {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
                             return true;
                         } else if (itemId == R.string.menu_faq) {
-                            Helper.view(getContext(), Helper.getSupportUri(getContext()), false);
+//                            Helper.view(getContext(), Helper.getSupportUri(getContext()), false);
+                            Activity activity = getActivity();
+                            if (activity != null) {
+                                EmailHelper.sendEmailToSupport(activity);
+                            }
                             return true;
                         }
 
@@ -323,6 +334,7 @@ public class FragmentSetup extends FragmentBase {
         });
 
         tvQuickNew.setPaintFlags(tvQuickNew.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvQuickNew.setVisibility(View.GONE);
         tvQuickNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

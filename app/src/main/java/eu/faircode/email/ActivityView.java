@@ -56,6 +56,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bugsnag.android.appextension.PopupManager;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -537,6 +538,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         checkCrash();
 
         Shortcuts.update(this, this);
+
+        new PopupManager().onAppStarted(this);
     }
 
     private void init() {

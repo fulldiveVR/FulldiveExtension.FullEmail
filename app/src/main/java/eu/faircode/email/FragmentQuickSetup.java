@@ -6,6 +6,7 @@ package eu.faircode.email;
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -33,6 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
 
+import com.bugsnag.android.appextension.EmailHelper;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.net.UnknownHostException;
@@ -191,7 +193,11 @@ public class FragmentQuickSetup extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+//                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    EmailHelper.sendEmailToSupport(activity);
+                }
             }
         });
 

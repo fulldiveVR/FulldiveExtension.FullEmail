@@ -577,7 +577,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
-                cardDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+//                cardDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
                 if (checked)
                     view.post(new Runnable() {
                         @Override
@@ -1139,7 +1139,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
-        cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+//        cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }
 
     private void updateUsage() {

@@ -135,7 +135,7 @@ public class EmailService implements AutoCloseable {
     // TLS_EMPTY_RENEGOTIATION_INFO_SCSV https://tools.ietf.org/html/rfc5746
 
     static {
-        System.loadLibrary("Full Email");
+        System.loadLibrary("fairemail");
     }
 
     private static native int jni_socket_keep_alive(int fd, int seconds);
@@ -340,7 +340,7 @@ public class EmailService implements AutoCloseable {
             String user, String password,
             ServiceAuthenticator.IAuthenticated intf,
             String certificate, String fingerprint) throws MessagingException {
-        properties.put("Full Email.server", host);
+        properties.put("fairemail.server", host);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean bind_socket = prefs.getBoolean("bind_socket", false);
@@ -351,7 +351,7 @@ public class EmailService implements AutoCloseable {
                 Network active = cm.getActiveNetwork();
                 if (active != null) {
                     EntityLog.log(context, "Binding to active network " + active);
-                    properties.put("Full Email.factory", active.getSocketFactory());
+                    properties.put("fairemail.factory", active.getSocketFactory());
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
@@ -394,7 +394,7 @@ public class EmailService implements AutoCloseable {
                 properties.put("mail." + protocol + ".auth.xoauth2.disable", "true");
 
             if (auth == AUTH_TYPE_OAUTH && "imap.mail.yahoo.com".equals(host))
-                properties.put("mail." + protocol + ".yahoo.guid", "Full Email_V1");
+                properties.put("mail." + protocol + ".yahoo.guid", "fairemail_V1");
 
             connect(host, port, auth, user, authenticator, factory);
         } catch (AuthenticationFailedException ex) {
@@ -1037,7 +1037,7 @@ public class EmailService implements AutoCloseable {
         }
 
         try {
-            boolean tcp_keep_alive = Boolean.parseBoolean(System.getProperty("Full Email.tcp_keep_alive"));
+            boolean tcp_keep_alive = Boolean.parseBoolean(System.getProperty("fairemail.tcp_keep_alive"));
             if (tcp_keep_alive) {
                 Log.i("Enabling TCP keep alive");
 
