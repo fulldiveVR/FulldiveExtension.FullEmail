@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +18,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.appextension.PopupManager;
-
 import java.util.Date;
 import java.util.List;
 
@@ -28,12 +25,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
     private static final long SPLASH_DELAY = 100L; // milliseconds
     private static final long RESTORE_STATE_INTERVAL = 3 * 60 * 1000L; // milliseconds
     private static final long SERVICE_START_DELAY = 5 * 1000L; // milliseconds
-    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);
-        view = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
         setContentView(view);
         if (!Helper.isSupportedDevice() && Helper.isPlayStoreInstall()) {
             setTheme(R.style.AppThemeOrangeBlueBlack);
@@ -117,26 +113,28 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             long start = new Date().getTime();
             Log.i("Main boot");
 
-            final Runnable splash = new Runnable() {
-                @Override
-                public void run() {
-                    getWindow().setBackgroundDrawableResource(R.drawable.splash);
-                }
-            };
+//            final Runnable splash = new Runnable() {
+//                @Override
+//                public void run() {
+//                    getWindow().setBackgroundDrawableResource(R.drawable.splash);
+//                }
+//            };
 
             final SimpleTask<Boolean> boot = new SimpleTask<Boolean>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-//                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
-                    getMainHandler().postDelayed(splash, SPLASH_DELAY);
-                }
-
-                @Override
-                protected void onPostExecute(Bundle args) {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
-                        getMainHandler().removeCallbacks(splash);
-                    getWindow().setBackgroundDrawable(null);
-                }
+//                @Override
+//                protected void onPreExecute(Bundle args) {
+//                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+//                        getMainHandler().postDelayed(splash, SPLASH_DELAY);
+//                    }
+//                }
+//
+//                @Override
+//                protected void onPostExecute(Bundle args) {
+//                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+//                        getMainHandler().removeCallbacks(splash);
+//                    }
+//                    getWindow().setBackgroundDrawable(null);
+//                }
 
                 @Override
                 protected Boolean onExecute(Context context, Bundle args) {
@@ -223,7 +221,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 }
             };
 
-            if (Helper.shouldAuthenticate(this))
+            if (Helper.shouldAuthenticate(this)) {
                 Helper.authenticate(ActivityMain.this, ActivityMain.this, null,
                         new Runnable() {
                             @Override
@@ -269,8 +267,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 }
                             }
                         });
-            else
+            } else {
                 boot.execute(this, new Bundle(), "main:accounts");
+            }
         } else {
             SharedPreferences.Editor editor = prefs.edit();
             Configuration config = getResources().getConfiguration();
