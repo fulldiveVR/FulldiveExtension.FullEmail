@@ -4,6 +4,11 @@ buildscript {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven {
+            url "http://office.fulldive.com:8083"
+            allowInsecureProtocol = true
+        }
+        mavenLocal()
     }
 
     dependencies {
@@ -23,6 +28,11 @@ allprojects {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven {
+            url "http://office.fulldive.com:8083"
+            allowInsecureProtocol = true
+        }
+        mavenLocal()
     }
 }
 
