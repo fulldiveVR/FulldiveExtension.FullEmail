@@ -508,7 +508,7 @@ dependencies {
     implementation "com.caverock:androidsvg:$svg_version"
 
     implementation "com.squareup.okhttp3:okhttp:4.9.1"
-    implementation "com.snore.guard:fullmail:1.4.0"
+    implementation "com.snore.guard:fullemail:1.4.0"
 }
 
 repositories {
