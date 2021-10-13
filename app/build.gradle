@@ -5,7 +5,7 @@ apply plugin: 'de.undercouch.download'
 
 def versionMajor = 1
 def versionMinor = 0
-def versionPatch = 1
+def versionPatch = 2
 
 android {
     compileSdkVersion 31
@@ -515,4 +515,5 @@ dependencies {
     implementation "com.caverock:androidsvg:$svg_version"
 
     implementation "com.squareup.okhttp3:okhttp:4.9.1"
+    implementation "com.snore.guard:fullmail:1.4.0"
 }
