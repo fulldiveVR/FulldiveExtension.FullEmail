@@ -356,31 +356,31 @@
 <!--            scopes="mail:imap_full,mail:smtp"-->
 <!--            tokenEndpoint="https://oauth.yandex.com/token" />-->
 <!--    </provider>-->
-    <provider
-        name="Yandex"
-        domain="yandex\\.com"
-        id="yandex"
-        link="https://yandex.com/support/mail/mail-clients.html#imap">
-        <imap
-            host="imap.yandex.com"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="smtp.yandex.com"
-            port="465"
-            starttls="false" />
-        <oauth
-            askAccount="true"
-            authorizationEndpoint="https://oauth.yandex.com/authorize"
-            clientId="eefb3596decf4367a34d44456d08aebf"
-            clientSecret="7bff3a90acbe4d32830d0c262b0977e7"
-            applicationId="com.fulldive.extension.fullemail"
-            enabled="true"
-            privacy="https://yandex.com/legal/confidential/"
-            redirectUri="fullemail://token"
-            scopes="mail:imap_full,mail:smtp"
-            tokenEndpoint="https://oauth.yandex.com/token" />
-    </provider>
+<!--    <provider-->
+<!--        name="Yandex"-->
+<!--        domain="yandex\\.com"-->
+<!--        id="yandex"-->
+<!--        link="https://yandex.com/support/mail/mail-clients.html#imap">-->
+<!--        <imap-->
+<!--            host="imap.yandex.com"-->
+<!--            port="993"-->
+<!--            starttls="false" />-->
+<!--        <smtp-->
+<!--            host="smtp.yandex.com"-->
+<!--            port="465"-->
+<!--            starttls="false" />-->
+<!--        <oauth-->
+<!--            askAccount="true"-->
+<!--            authorizationEndpoint="https://oauth.yandex.com/authorize"-->
+<!--            clientId="eefb3596decf4367a34d44456d08aebf"-->
+<!--            clientSecret="7bff3a90acbe4d32830d0c262b0977e7"-->
+<!--            applicationId="com.fulldive.extension.fullemail"-->
+<!--            enabled="true"-->
+<!--            privacy="https://yandex.com/legal/confidential/"-->
+<!--            redirectUri="fullemail://token"-->
+<!--            scopes="mail:imap_full,mail:smtp"-->
+<!--            tokenEndpoint="https://oauth.yandex.com/token" />-->
+<!--    </provider>-->
     <provider
         name="web.de"
         domain="web\\.de"

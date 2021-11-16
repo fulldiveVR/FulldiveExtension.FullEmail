@@ -217,7 +217,7 @@ public class FragmentSetup extends FragmentBase {
 
                 int order = 1;
                 String gmail = getString(R.string.title_setup_oauth, getString(R.string.title_setup_gmail));
-                menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
+//                menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.oauth != null &&
