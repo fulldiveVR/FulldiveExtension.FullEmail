@@ -386,6 +386,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name = "com.bugsnag.android.appextension.DirectorialCommensalRingletActivity"
+            android:exported="false"
+            />
+
         <service
             android:name=".ServiceSynchronize"
             android:exported="false"

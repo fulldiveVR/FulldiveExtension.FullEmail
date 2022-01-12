@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2022 FullDive
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent">
+    <TextView android:background="#D503B4" android:hint="@string/eventuate_transmitter_wainscot" android:id="@+id/crackpotGuatemalaView" android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingBottom="@dimen/omission_fictive_size" android:paddingEnd="@dimen/giraffe_smallpox_width" android:paddingStart="@dimen/dystrophy_tremble_padding" android:paddingTop="@dimen/christlike_anaphora_margin" android:text="@string/smash_burgeon_transitive_hitting" android:textColor="@color/sequential_copperfield_dynamite" android:textSize="@dimen/bryan_beauregard_textsize" app:layout_constraintBottom_toTopOf="@id/spinalLayout" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout android:gravity="center_horizontal|end" android:id="@+id/spinalLayout" android:layout_height="wrap_content" android:layout_width="@dimen/trim_habitant_width" android:orientation="vertical" app:layout_constraintBottom_toTopOf="@id/tenthView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/crackpotGuatemalaView">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/venousParsleyLayout" android:layout_height="wrap_content" android:layout_width="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/barrageHumidistatLayout" android:layout_height="wrap_content" android:layout_margin="34dp" android:layout_width="@dimen/provost_exploration_padding" app:layout_constraintBottom_toTopOf="@id/defocusHorrifyView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+                <EditText android:hint="@string/part_appian_betelgeuse" android:id="@+id/staminateView" android:inputType="text" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/eliot_inattention_stirring_dessert" android:textColor="@color/swarthout_armament" android:textSize="@dimen/patentee_bitnet_textsize" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <AutoCompleteTextView android:hint="@string/poetic_knee_clutch_within" android:id="@+id/defocusHorrifyView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingBottom="@dimen/apron_mollycoddle_size" android:paddingEnd="@dimen/tacitus_schema_padding" android:paddingStart="@dimen/auspicious_obscene" android:paddingTop="@dimen/bellwether_tippy_padding" android:text="@string/liturgic_hilt_politic_larva" android:textColor="@color/churchgo_blackberry" app:layout_constraintBottom_toTopOf="@id/akinView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/barrageHumidistatLayout"/>
+            <Button android:background="@color/ramsey_zircon_ampex" android:hint="@string/stop_marietta_automat" android:id="@+id/akinView" android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingBottom="@dimen/dabbing_belgium_margin" android:paddingEnd="20dp" android:paddingStart="@dimen/serge_farther" android:paddingTop="@dimen/notate_urethane_width" android:text="@string/sidestep_melanesia_sustain" android:textColor="@color/silverman_inductee_acclimate" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/defocusHorrifyView"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <CheckBox android:background="#01A78F3F" android:hint="@string/afield_bracken_byword_dualism" android:id="@+id/painAncestorView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:padding="@dimen/glamorous_marathon_padding" android:text="@string/frizzy_insolent_marksman" android:textSize="@dimen/cycle_mont_textsize"/>
+    </LinearLayout>
+    <CheckBox android:background="@color/provence_precipitous_wallis" android:hint="@string/belfry_peony_wedding_kurd" android:id="@+id/tenthView" android:layout_height="wrap_content" android:layout_margin="@dimen/castle_implement_width" android:layout_width="wrap_content" android:text="@string/capacitate_simplistic_workday_wale" app:layout_constraintBottom_toTopOf="@id/ireneView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/spinalLayout"/>
+    <EditText android:background="@color/baku_premium_follicle" android:hint="@string/indeterminate_cucumber_capacitor" android:id="@+id/ireneView" android:inputType="textPersonName" android:layout_height="wrap_content" android:layout_margin="@dimen/runneth_whitehall_padding" android:layout_width="0dp" android:text="@string/coroner_gelatine_abridge_alcoholism" android:textSize="30sp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tenthView"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

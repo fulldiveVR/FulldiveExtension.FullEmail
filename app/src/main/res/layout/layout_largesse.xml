@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2022 FullDive
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent">
+    <LinearLayout android:gravity="bottom" android:id="@+id/venousParsleyLayout" android:layout_height="wrap_content" android:layout_width="0dp" android:orientation="horizontal" app:layout_constraintBottom_toTopOf="@id/girthView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:gravity="bottom" android:id="@+id/delmarvaLayout" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="horizontal">
+            <TextView android:background="#0A5F3A46" android:hint="@string/manchester_digging_perverse_excitation" android:id="@+id/gavelView" android:layout_height="wrap_content" android:layout_margin="26dp" android:layout_width="wrap_content" android:text="@string/pascal_macedon_metallurgy_platelet" android:textColor="#D464291F" android:textSize="@dimen/wiseacre_monaco_textsize"/>
+            <EditText android:background="@color/technic_seismograph_deacon" android:hint="@string/debauchery_shifty_tremulous_countywide" android:id="@+id/cootView" android:inputType="textVisiblePassword" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/joule_acrophobic_beech" android:textColor="#9E45BB7B"/>
+            <CheckedTextView android:background="@color/dramatic_tackle_extricable" android:hint="@string/jock_pervade_wast" android:id="@+id/toxinView" android:layout_height="wrap_content" android:layout_marginTop="@dimen/mira_explode_height" android:layout_width="wrap_content" android:text="@string/sweater_vendetta_dogleg_hereinabove" android:textColor="@color/combinate_minuteman_circumcision"/>
+        </LinearLayout>
+        <EditText android:hint="@string/acrobacy_until_mass" android:id="@+id/antipodeClashView" android:inputType="textPersonName" android:layout_height="wrap_content" android:layout_width="wrap_content" android:padding="@dimen/cluj_touchy" android:text="@string/soar_katowice_whiff" android:textColor="@color/stain_crowbait_farfetched"/>
+        <CheckedTextView android:background="@color/beloit_satellite" android:hint="@string/rebuttal_stumble_william" android:id="@+id/waffleView" android:layout_height="match_parent" android:layout_width="wrap_content" android:text="@string/sunbeam_excelled_proud" android:textColor="@color/notre_feedback"/>
+        <AutoCompleteTextView android:hint="@string/fume_support_micrography" android:id="@+id/gunmenView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/shed_cough_deodorant_babylon" android:textColor="@color/handful_bucketfull"/>
+        <TextView android:background="@color/ensign_plugging_alienate" android:hint="@string/tatting_oblate_hemorrhoid_reich" android:id="@+id/pimpleLithologyView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/thetis_presumptuous_aperiodic"/>
+        <TextView android:background="@color/ecumenic_hothead" android:hint="@string/tithing_infinity_marilyn_pigmentation" android:id="@+id/arsenicView" android:layout_height="match_parent" android:layout_margin="@dimen/ahead_innuendo_padding" android:layout_width="wrap_content" android:text="@string/sabbath_case_pharmacology_brick" android:textColor="@color/caress_bequeath"/>
+    </LinearLayout>
+    <AutoCompleteTextView android:hint="@string/ingersoll_impelled_deacon" android:id="@+id/girthView" android:layout_height="wrap_content" android:layout_width="@dimen/pleural_toddle" android:text="@string/nepotistic_harelip_megohm_fermi" android:textColor="@color/chickadee_conundrum" android:textSize="@dimen/irrepressible_slot_textsize" app:layout_constraintBottom_toTopOf="@id/presbyterianPinscherView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/venousParsleyLayout"/>
+    <CheckBox android:background="@color/without_osteology_crystalline" android:hint="@string/dacca_rightward_eyeglass_extrude" android:id="@+id/presbyterianPinscherView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/lippincott_ieee_marc" android:textColor="@color/impact_terrible_malden" android:textSize="@dimen/parthenon_asymmetric_textsize" app:layout_constraintBottom_toTopOf="@id/preponderateFresnoView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/girthView"/>
+    <CheckBox android:background="@color/ethology_snoopy" android:hint="@string/whale_telephony_cluck" android:id="@+id/preponderateFresnoView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/megahertz_intendant_camaraderie_wishful" android:textColor="@color/sullivan_diploid_interval" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/presbyterianPinscherView"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
